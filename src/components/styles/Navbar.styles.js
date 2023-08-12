@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
-
+import ThemeToggleButton from "../ThemeToggleButton";
 
 const NavbarContainer = styled.nav`
   display: flex;
@@ -42,11 +42,10 @@ const Navbar = () => (
     <NavbarContainer>
         <Logo><NavLink to="/"> My App</NavLink></Logo>
         <NavList>
-            <li></li>
             <li><NavLink to="/about">About</NavLink></li>
             <li><NavLink to="/projects">Projects</NavLink></li>
             <li><NavLink to="/contact">Contact</NavLink></li>
-
+            <ThemeToggleButton />
         </NavList>
     </NavbarContainer>
 );
