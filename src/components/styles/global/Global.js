@@ -1,6 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 *,
 *::before,
 *::after {
@@ -10,9 +12,7 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 body {
-  background-color: hsl(0, 0%, 100%);
-  color: hsl(0, 1%, 16%);
-  font-family: monospace;
+  font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
 }
 `

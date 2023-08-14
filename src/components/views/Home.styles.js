@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { PageContainer } from "./PageContainer.styles";
+import { ViewsWrapper } from "./ViewsWrapper";
 
 export const HomeContainer = styled.div`
   text-align: center;
@@ -9,11 +9,11 @@ export const HomeContainer = styled.div`
 
 
 const Home = () => (
-    <PageContainer>
+    <ViewsWrapper>
         <HomeContainer>
             Home
         </HomeContainer>
-    </PageContainer>
+    </ViewsWrapper>
 );
 
 export default Home;

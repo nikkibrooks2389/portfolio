@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { PageContainer } from "./PageContainer.styles";
+import { ViewsWrapper } from "./ViewsWrapper";
 
 export const ContactContainer = styled.div`
   text-align: center;
@@ -9,11 +9,11 @@ export const ContactContainer = styled.div`
 
 
 const Contact = () => (
-  <PageContainer>
+  <ViewsWrapper>
     <ContactContainer>
       Contact
     </ContactContainer>
-  </PageContainer>
+  </ViewsWrapper>
 );
 
 export default Contact;

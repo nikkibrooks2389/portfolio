@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './components/styles/Home.styles';
-import About from './components/styles/About.styles';
-import Projects from './components/styles/Projects.styles';
-import Contact from './components/styles/Contact.styles';
+import Home from './components/views/Home.styles';
+import About from './components/views/About.styles';
+import Projects from './components/views/Projects.styles';
+import Contact from './components/views/Contact.styles';
 import Layout from './components/Layout';
-import { GlobalStyles } from "./components/styles/Global";
+import { GlobalStyles } from "./components/styles/global/Global";
 import { ThemeProvider as StyledProvider } from 'styled-components';
-import { ThemeProvider, ThemeContext } from './components/ThemeContext';
+import { ThemeProvider, ThemeContext } from './components/context/ThemeContext';
 import React, { useContext } from 'react';
 
 const ThemeWrapper = () => {
