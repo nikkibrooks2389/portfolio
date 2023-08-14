@@ -1,8 +1,7 @@
 import styled from "styled-components";
+import { PageContainer } from "./PageContainer.styles";
 
 export const ContactContainer = styled.div`
-  background-color: hsl(0, 0%, 93%);
-  padding: 20px;
   text-align: center;
   font-weight: bold;
 `;
@@ -10,9 +9,11 @@ export const ContactContainer = styled.div`
 
 
 const Contact = () => (
-  <ContactContainer>
-    Contact
-  </ContactContainer>
+  <PageContainer>
+    <ContactContainer>
+      Contact
+    </ContactContainer>
+  </PageContainer>
 );
 
 export default Contact;

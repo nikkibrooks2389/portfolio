@@ -1,8 +1,7 @@
 import styled from "styled-components";
+import { PageContainer } from "./PageContainer.styles";
 
 export const HomeContainer = styled.div`
-  background-color: hsl(0, 0%, 93%);
-  padding: 20px;
   text-align: center;
   font-weight: bold;
 `;
@@ -10,9 +9,11 @@ export const HomeContainer = styled.div`
 
 
 const Home = () => (
-    <HomeContainer>
-        Home
-    </HomeContainer>
+    <PageContainer>
+        <HomeContainer>
+            Home
+        </HomeContainer>
+    </PageContainer>
 );
 
 export default Home;

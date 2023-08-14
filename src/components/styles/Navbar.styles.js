@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom';
 import ThemeToggleButton from "../ThemeToggleButton";
 
 const NavbarContainer = styled.nav`
+  position: fixed;
+  width:100%;
+  height:60px;
   display: flex;
+  flex-direction:row;
   justify-content: space-between;
   align-items: center;
-  background-color: #2c3e50;
-  padding: 10px 20px;
+  background-color: transparent;
+  padding: 10px 20px; 
 `;
 
 const NavList = styled.ul`
@@ -20,7 +24,7 @@ const NavList = styled.ul`
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  color: white;
+  color: ${props => props.theme.text};
   font-size: 18px;
   cursor: pointer;
   transition: color 0.3s;

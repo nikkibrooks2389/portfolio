@@ -1,8 +1,7 @@
 import styled from "styled-components";
+import { PageContainer } from "./PageContainer.styles";
 
 export const ProjectsContainer = styled.div`
-  background-color: hsl(0, 0%, 93%);
-  padding: 20px;
   text-align: center;
   font-weight: bold;
 `;
@@ -10,9 +9,11 @@ export const ProjectsContainer = styled.div`
 
 
 const Projects = () => (
-    <ProjectsContainer>
-        Projects
-    </ProjectsContainer>
+    <PageContainer>
+        <ProjectsContainer>
+            Projects
+        </ProjectsContainer>
+    </PageContainer>
 );
 
 export default Projects;

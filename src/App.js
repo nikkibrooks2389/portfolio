@@ -7,33 +7,33 @@ import Layout from './components/Layout';
 import { GlobalStyles } from "./components/styles/Global";
 import { ThemeProvider as StyledProvider } from 'styled-components';
 import { ThemeProvider, ThemeContext } from './components/ThemeContext';
-import { lightTheme } from './components/styles/Theme.styled';
+import React, { useContext } from 'react';
+
+const ThemeWrapper = () => {
+  const { theme } = useContext(ThemeContext);
+  return (
+    <StyledProvider theme={theme}>
+      <GlobalStyles />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="projects" element={<Projects />} />
+            <Route path="contact" element={<Contact />} />
+          </Route>
+        </Routes>
+      </Router>
+    </StyledProvider>
+  );
+}
 
 const App = () => {
   return (
     <ThemeProvider>
-      <ThemeContext.Consumer>
-        {({ theme }) => (
-          <StyledProvider theme={theme}>
-            <GlobalStyles />
-            <Router>
-              <Routes>
-                <Route path="/" element={<Layout />}>
-                  <Route index element={<Home />} />
-                  <Route path="about" element={<About />} />
-                  <Route path="projects" element={<Projects />} />
-                  <Route path="contact" element={<Contact />} />
-                </Route>
-              </Routes>
-            </Router>
-          </StyledProvider>
-        )}
-      </ThemeContext.Consumer>
+      <ThemeWrapper />
     </ThemeProvider>
   );
 }
 
 export default App;
-
-
-
