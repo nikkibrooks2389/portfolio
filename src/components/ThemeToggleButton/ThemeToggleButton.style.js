@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
 const Button = styled.button`
-  background-color: ${(props) => props.theme.textPrimary}; // Opposite color of the theme background
-  color: ${(props) => props.theme.background}; // Color of the theme background
+  background-color: ${(props) => props.theme.colors.primaryText}; // Opposite color of the theme background
+  color: ${(props) => props.theme.colors.primaryBackground}; // Color of the theme background
   border: none;
   border-radius: 50%; // Makes the button circular
   width: 30px;

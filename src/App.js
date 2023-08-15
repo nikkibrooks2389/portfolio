@@ -4,6 +4,7 @@ import About from './components/views/About.styles';
 import Projects from './components/views/Projects.styles';
 import Contact from './components/views/Contact.styles';
 import Layout from './components/Layout';
+import CustomCursor from './components/customCursor/CustomeCursor.style';
 import { GlobalStyles } from "./components/styles/global/Global";
 import { ThemeProvider as StyledProvider } from 'styled-components';
 import { ThemeProvider, ThemeContext } from './components/context/ThemeContext';
@@ -32,6 +33,7 @@ const App = () => {
   return (
     <ThemeProvider>
       <ThemeWrapper />
+      <CustomCursor />
     </ThemeProvider>
   );
 }

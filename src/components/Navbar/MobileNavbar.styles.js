@@ -6,7 +6,7 @@ import Hamburger from "./HamburgerMenu.styles";
 import ThemeToggleButton from '../ThemeToggleButton/ThemeToggleButton.style';
 
 const NavbarContainer = styled.nav`
-background-color: ${props => props.theme.background};
+background-color: ${props => props.theme.colors.primaryBackground};
   position: fixed;
   width: 100%;
   height: 60px;
@@ -18,7 +18,7 @@ background-color: ${props => props.theme.background};
   `;
 
 const NavList = styled.ul`
-background-color: ${props => props.theme.background};
+background-color: ${props => props.theme.colors.primaryBackground};
 position: fixed;
 width: 100%;
 height: 100vh;
@@ -37,16 +37,32 @@ const NavItem = styled.li`
   color: ${props => (props.isActive ? '#00aaff' : 'inherit')};
 `;
 const NavLink = styled(Link)`
-  text-decoration: none;
-  color: ${props => (props.isActive ? 'blue' : props.theme.textPrimary)};
-  font-size: 24px;
-  font-weight:bold;
-  cursor: pointer;
-  transition: color 0.3s;
+text-decoration: none;
+color: ${props => (props.isActive ? props.theme.colors.accent : props.theme.colors.primaryText)};
+font-size: 1.5rem;
+cursor: pointer;
+position: relative;
+transition: background-color 0.3s ease-in-out;
 
-  &:hover {
-    color: #00aaff;
-  }
+&:hover {
+  color: ${props => !props.isActive && props.theme.colors.accentHover};
+}
+
+
+&::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: ${props => props.theme.colors.accentHover};
+  transition: width 0.3s ease-in-out;
+}
+
+&:hover::after {
+  width: ${props => !props.isActive ? "100%" : "0%"}
+}
 `;
 
 const Logo = styled.div`
@@ -72,15 +88,15 @@ const MobileNavbar = () => {
   return (
     <>
       <NavbarContainer>
-        <Logo><NavLink to="/">My App</NavLink></Logo>
+        <Logo><NavLink to="/" onClick={handleNavLinkClick} isActive={location.pathname === "/"}>NB</NavLink></Logo>
         <ThemeToggleButton />
         <Hamburger onClick={handleMenuToggle} isOpen={isMenuOpen} />
       </NavbarContainer>
 
       <NavList isOpen={isMenuOpen}>
         <NavItem isActive={location.pathname === "/about"}><NavLink to="/about" onClick={handleNavLinkClick} isActive={location.pathname === "/about"}>About</NavLink></NavItem>
-        <NavItem isActive={location.pathname === "/about"}><NavLink to="/projects" onClick={handleNavLinkClick} isActive={location.pathname === "/projects"}>Projects</NavLink></NavItem>
-        <NavItem isActive={location.pathname === "/about"}><NavLink to="/contact" onClick={handleNavLinkClick} isActive={location.pathname === "/contact"}> Contact</NavLink></NavItem>
+        <NavItem isActive={location.pathname === "/projects"}><NavLink to="/projects" onClick={handleNavLinkClick} isActive={location.pathname === "/projects"}>Projects</NavLink></NavItem>
+        <NavItem isActive={location.pathname === "/contact"}><NavLink to="/contact" onClick={handleNavLinkClick} isActive={location.pathname === "/contact"}> Contact</NavLink></NavItem>
       </NavList>
 
     </>

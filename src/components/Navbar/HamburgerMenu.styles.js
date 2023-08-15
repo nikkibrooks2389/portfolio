@@ -13,7 +13,7 @@ const HamburgerMenu = styled.div`
 const Line = styled.div`
 width: 100%;
 height: 2.5px;
-background-color: ${props => props.theme.textPrimary};
+background-color: ${props => props.theme.colors.primaryText};
 transition: all 0.3s ease;
 position: relative;
 
