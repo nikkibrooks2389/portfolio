@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import ThemeToggleButton from "../ThemeToggleButton/ThemeToggleButton.style.js";
 
 const NavbarContainer = styled.nav`
+background-color: ${props => props.theme.colors.primaryBackground};
   position: fixed;
   width: 100%;
   height: 60px;
@@ -12,6 +13,7 @@ const NavbarContainer = styled.nav`
   justify-content: space-between;
   align-items:center;
   padding: 2rem;
+  z-index:1005
   `;
 const NavList = styled.ul`
 align-items:center;

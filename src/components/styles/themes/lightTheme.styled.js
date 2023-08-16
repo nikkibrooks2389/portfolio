@@ -1,48 +1,55 @@
-export const lightTheme = {
 
-    // colors: {
-    //     primaryBackground: '#F6F8FA', // Light gray-blue
-    //     secondaryBackground: '#DDE3E6', // Pale blue
-    //     primaryText: '#353535', // Dark gray
-    //     secondaryText: '#6E6E6E', // Medium gray
-    //     accent: '#3E8DCC', // Deep blue
-    //     accentHover: '#4F9DDB', // Lighter blue for hover
-    //     secondaryAccent: '#00A89D', // Teal
-    //     tertiaryAccent: '#FFA600', // Gold
-    //     highlight: '#D74E4E' // Coral red
-    // },
-    // colors: {
-    //     primaryBackground: '#F0F5E5', // Pale green-gray
-    //     secondaryBackground: '#D9E9C2', // Light green
-    //     primaryText: '#363636', // Dark gray
-    //     secondaryText: '#7B7B7B', // Medium gray
-    //     accent: '#87BBA2', // Soft green
-    //     accentHover: '#9BCEB9', // Lighter green for hover
-    //     secondaryAccent: '#FF9E9D', // Pastel pink
-    //     tertiaryAccent: '#FFCC5C', // Mustard yellow
-    //     highlight: '#C16C6C' // Muted red
-    // }
+import { fonts, breakpoints } from './sharedStyles';
+export const lightTheme = {
     mode: "light",
     colors: {
         primaryBackground: '#F0F0F0', // Light gray
         secondaryBackground: '#D3D3D3', // Medium gray
+        tertiaryBackground: '#B0B0B0', // Darker gray
+        quaternaryBackground: '#A0A0A0', // Even darker gray
+
         primaryText: '#2B2B2B', // Dark gray
         secondaryText: '#595959', // Gray
+        tertiaryText: '#7D7D7D', // Light gray
+        quaternaryText: '#A5A5A5', // Even lighter gray
+
         accent: '#FF7733', // Bright orange
         accentHover: '#FF924E', // Lighter orange for hover
+        accentDark: '#FF6319', // Darker orange shade
+
         secondaryAccent: '#44A3B2', // Light blue
+        secondaryAccentHover: '#68B6C8', // Lighter blue shade
+        secondaryAccentDark: '#297F8E', // Darker blue shade
+
         tertiaryAccent: '#FFC61E', // Yellow
-        highlight: '#9B5151' // Maroon
-    },
+        tertiaryAccentLight: '#FFD54F', // Lighter yellow
+        tertiaryAccentDark: '#E5B500', // Darker yellow
 
-    fonts: {
-        primary: '"Quicksand", sans-serif',
-        secondary: '"Dancing Script", cursive',
+        quaternaryAccent: '#32CD32', // LimeGreen
+        quaternaryAccentLight: '#5CE65C', // Lighter LimeGreen
+        quaternaryAccentDark: '#28A528', // Darker LimeGreen
 
+        highlight: '#9B5151', // Maroon
+        highlightLight: '#B76969', // Lighter Maroon
+        highlightDark: '#852E2E', // Darker Maroon
+
+        warning: '#FFD700', // Gold for warning messages or icons
+        warningLight: '#FFE833', // Lighter gold
+        warningDark: '#E5BE00', // Darker gold
+
+        error: '#FF4500', // OrangeRed for error messages or icons
+        errorLight: '#FF6A33', // Lighter OrangeRed
+        errorDark: '#D93A00', // Darker OrangeRed
+
+        success: '#32CD32', // LimeGreen for success messages or icons
+        successLight: '#5CE65C', // Lighter LimeGreen
+        successDark: '#28A528', // Darker LimeGreen
+
+        neutral: '#C0C0C0', // Neutral gray, can be used for borders, dividers, etc.
+        neutralLight: '#D4D4D4', // Lighter neutral gray
+        neutralDark: '#ACACAC'  // Darker neutral gray
     },
-    breakpoints: {
-        mobile: '480px',
-        tablet: '768px',
-        desktop: '1024px'
-    }
+    fonts,
+    breakpoints,
+
 };

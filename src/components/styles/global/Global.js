@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
+
 export const GlobalStyles = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 *,
 *::before,
@@ -12,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 body {
-  font-family: 'Quicksand', sans-serif;  
+  font-family: ${({ theme }) => theme.fonts.primary};  
   overflow-x: hidden;
 }
 `
