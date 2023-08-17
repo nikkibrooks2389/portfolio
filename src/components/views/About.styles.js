@@ -15,10 +15,7 @@ import Image6 from '../../../src/assets/images/nicole-img-6.jpg';
 
 const AboutContainer = styled.div`
   display:flex;
- 
-  font-weight: bold;
-  padding: 20px;
-
+  width:100%;
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
    flex-direction:column
   }
@@ -48,7 +45,7 @@ const AboutMeDescription = styled.p`
 const ImageGridContainer = styled.div`
   display:flex
   width: 30%; 
-  padding:0 1rem ;
+  padding-right:1rem;
   opacity: 0; // Start hidden
   transform: translateY(20px); 
   animation: ${slideUpFadeIn} 0.5s forwards; 
@@ -85,7 +82,7 @@ const About = () => {
           <ImageGrid images={images} />
         </ImageGridContainer>
         <AboutMeSection>
-          <AboutMeHeader>ABOUT ME.</AboutMeHeader>
+          <AboutMeHeader>About Me.</AboutMeHeader>
           <AboutMeDescription>
             Hailing from Massachusetts and now thriving in sunny San Diego, California, I'm a frontend developer with a design flair and an innovative spirit.<br /><br />
             After graduating from Learn Academy's coding bootcamp in San Diego, I further refined my skills with an internship at Victorise, immersing myself in React Native. This experience paved the way for my most recent role at iCompaas. Here, I took the lead on projects for brands like Oneloan Direct and Wannapractice, using tools such as React, Redux, Node.js, and CSS, while integrating Docker and AWS to enhance our workflow.<br /><br />

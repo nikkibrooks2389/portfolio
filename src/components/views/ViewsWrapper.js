@@ -1,11 +1,13 @@
 import styled from 'styled-components';
-
+import { gradientAnimation } from '../styles/keyframes';
 
 export const ViewsWrapper = styled.div`
-min-height:100vh;
-  padding: 60px 20px 20px 20px;
-  background-color: ${props => props.theme.colors.primaryBackground};
-  color: ${props => props.theme.colors.primaryText};
+  display:flex;
+  justify-content:center;
+  min-height:100vh;
+  padding: 90px 45px 20px 45px;
+  background: ${({ theme }) => theme.colors.primaryBackground};   color: ${props => props.theme.colors.primaryText};
+  animation: ${gradientAnimation} 15s infinite,
+  animation-delay: 0.7s;
 
-
-    `;
+  `;

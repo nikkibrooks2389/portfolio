@@ -1,5 +1,5 @@
-import { lightTheme } from './lightTheme.styled';
-import { darkTheme } from './darkTheme.styled';
+import { darkTheme } from './darkTheme';
+import { lightTheme } from './lightTheme';
 
 export {
     lightTheme,

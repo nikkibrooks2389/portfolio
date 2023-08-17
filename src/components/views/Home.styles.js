@@ -25,7 +25,7 @@ const slideUpFadeIn = keyframes`
 `;
 
 const Name = styled.div`
-font-size: 2rem;
+font-size: 2.5rem;
 margin-left:1rem;
 font-weight:500;
 color:${props => props.theme.colors.accent};
@@ -113,25 +113,25 @@ const ShortDescription = styled.p`
 
 
 const Home = () => (
-    <ViewsWrapper>
-        <HeaderContainer>
-            <div>
-                <Name>Nicole Brooks</Name>
-                <div>
-                    <FrontendWord>Frontend</FrontendWord>
-                    {"Developer".split("").map((char, index) => (
-                        <RightSmoothBouncingLetter key={index} index={index}>
-                            {char}
-                        </RightSmoothBouncingLetter>
-                    ))}
-                </div>
-                <ShortDescription>
-                    Passionate frontend developer with a knack for creating intuitive and visually appealing web experiences. Enthusiastic about blending creativity with technology to craft seamless user interactions.
-                </ShortDescription>
-                <AboutMe to="/about"> More About Me  <AnimatedArrow icon={faArrowRightLong} /></AboutMe>
-            </div>
-        </HeaderContainer>
-    </ViewsWrapper>
+  <ViewsWrapper>
+    <HeaderContainer>
+      <div>
+        <Name>Nicole Brooks</Name>
+        <div>
+          <FrontendWord>Frontend</FrontendWord>
+          {"Developer".split("").map((char, index) => (
+            <RightSmoothBouncingLetter key={index} index={index}>
+              {char}
+            </RightSmoothBouncingLetter>
+          ))}
+        </div>
+        <ShortDescription>
+          Passionate frontend developer with a knack for creating intuitive and visually appealing web experiences. Enthusiastic about blending creativity with technology to craft seamless user interactions.
+        </ShortDescription>
+        <AboutMe to="/about"> More About Me  <AnimatedArrow icon={faArrowRightLong} /></AboutMe>
+      </div>
+    </HeaderContainer>
+  </ViewsWrapper>
 );
 
 export default Home;

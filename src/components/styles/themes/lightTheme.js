@@ -1,9 +1,10 @@
 
 import { fonts, breakpoints } from './sharedStyles';
+
 export const lightTheme = {
     mode: "light",
     colors: {
-        primaryBackground: '#F0F0F0', // Light gray
+        primaryBackground: 'linear-gradient(135deg, #F3E7E9, #EAEFF3, #F4F1EA, #F1E1E2, #E8F3E8, #F0E6ED)',
         secondaryBackground: '#D3D3D3', // Medium gray
         tertiaryBackground: '#B0B0B0', // Darker gray
         quaternaryBackground: '#A0A0A0', // Even darker gray
@@ -13,21 +14,21 @@ export const lightTheme = {
         tertiaryText: '#7D7D7D', // Light gray
         quaternaryText: '#A5A5A5', // Even lighter gray
 
-        accent: '#FF7733', // Bright orange
-        accentHover: '#FF924E', // Lighter orange for hover
-        accentDark: '#FF6319', // Darker orange shade
+        accent: '#FF99B3', // Soft Pink
+        accentHover: '#FFDAB9', // Light Peach
+        accentDark: '#FF6A88', // Light Pink
 
-        secondaryAccent: '#44A3B2', // Light blue
-        secondaryAccentHover: '#68B6C8', // Lighter blue shade
-        secondaryAccentDark: '#297F8E', // Darker blue shade
+        secondaryAccent: '#87CEEB', // Sky Blue
+        secondaryAccentHover: '#C8E6FF', // Light Blue
+        secondaryAccentDark: '#5CACEE', // Dark Blue
 
-        tertiaryAccent: '#FFC61E', // Yellow
-        tertiaryAccentLight: '#FFD54F', // Lighter yellow
-        tertiaryAccentDark: '#E5B500', // Darker yellow
+        tertiaryAccent: '#FFD700', // Gold
+        tertiaryAccentLight: '#FFF68F', // Light Yellow
+        tertiaryAccentDark: '#FFA500', // Darker Yellow
 
-        quaternaryAccent: '#32CD32', // LimeGreen
-        quaternaryAccentLight: '#5CE65C', // Lighter LimeGreen
-        quaternaryAccentDark: '#28A528', // Darker LimeGreen
+        quaternaryAccent: '#98FB98', // Mint Green
+        quaternaryAccentLight: '#C1FFC1', // Light Green
+        quaternaryAccentDark: '#32CD32', // Dark Green
 
         highlight: '#9B5151', // Maroon
         highlightLight: '#B76969', // Lighter Maroon
@@ -47,7 +48,10 @@ export const lightTheme = {
 
         neutral: '#C0C0C0', // Neutral gray, can be used for borders, dividers, etc.
         neutralLight: '#D4D4D4', // Lighter neutral gray
-        neutralDark: '#ACACAC'  // Darker neutral gray
+        neutralDark: '#ACACAC',  // Darker neutral gray
+
+        inputBackgroundFocus: '#F5F5F5'
+
     },
     fonts,
     breakpoints,

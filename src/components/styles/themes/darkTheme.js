@@ -47,7 +47,9 @@ export const darkTheme = {
 
         neutral: '#595959', // Gray for dark theme, used for borders, dividers, etc.
         neutralLight: '#7D7D7D', // Lighter gray
-        neutralDark: '#2B2B2B'  // Darker gray
+        neutralDark: '#2B2B2B',  // Darker gray
+
+        inputBackgroundFocus: '#1E1E1E'
     },
     fonts,
     breakpoints,

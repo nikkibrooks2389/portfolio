@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 import ThemeToggleButton from "../ThemeToggleButton/ThemeToggleButton.style.js";
 
 const NavbarContainer = styled.nav`
-background-color: ${props => props.theme.colors.primaryBackground};
+
   position: fixed;
   width: 100%;
   height: 60px;

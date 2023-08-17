@@ -58,12 +58,14 @@ const StyledButton = styled.button`
     }
   }
 
+  
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 14px;
     padding: 8px 16px;
   }
 
-  // You can add more styles or button variants as needed.
+
 `;
 
 const Button = ({ variant = 'primary', children, ...props }) => {

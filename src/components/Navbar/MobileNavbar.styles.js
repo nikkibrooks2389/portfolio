@@ -6,7 +6,7 @@ import Hamburger from "./HamburgerMenu.styles";
 import ThemeToggleButton from '../ThemeToggleButton/ThemeToggleButton.style';
 
 const NavbarContainer = styled.nav`
-background-color: ${props => props.theme.colors.primaryBackground};
+
   position: fixed;
   width: 100%;
   height: 60px;
