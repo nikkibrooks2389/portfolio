@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
+import { slideUpFadeIn, slideInFromRightFadeIn } from "../styles/keyframes";
 
 const Grid = styled.div`
 display: grid;
-width: max-content;
 grid-template-columns: repeat(4, minmax(0, 260px));
-gap: 1rem;
+gap: 2rem;
 padding: 1rem 0;
-margin-top: 12px;
-
+margin-top: 4rem;
 
   @media (max-width: 1250px) {
     grid-template-columns: repeat(3, minmax(0, 260px)); /* For tablet */
@@ -28,8 +27,8 @@ const StyledImage = styled.img`
 
   object-fit: contain; /* Maintain aspect ratio */
   border-radius: 3rem;
-  border: 1px solid ${({ theme }) => theme.colors.accent};
-  transition: transform 0.3s ease-in-out;
+  opacity:0.9;
+
   
   &:hover,
   &:focus {

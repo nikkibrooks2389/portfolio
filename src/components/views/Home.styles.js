@@ -41,12 +41,15 @@ text-decoration:none;
 font-size: 1.3rem;
 cursor:pointer;
 font-weight:500;
+max-height:100vh;
 color:${props => props.theme.colors.secondaryText};
 opacity: 0; // Start hidden
   transform: translateY(20px); // Start slightly below
   animation: ${slideUpFadeIn} 0.5s forwards; // Apply the animation
   animation-delay: 2.5s; // Optional: Delay the animation so it happens after the "Frontend" animation. Adjust the time as needed.
-`;
+
+ 
+  `;
 
 
 const slideWithBounce = keyframes`
@@ -62,6 +65,23 @@ const FrontendWord = styled.div`
   font-size: 7rem;
   margin-right:5px;
   animation: ${slideWithBounce} 0.9s forwards;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+  font-size: 5rem;
+  }
+`;
+const DeveloperWordContainer = styled.div`
+  display: flex;
+ align-items:end;
+ padding-bottom:1rem
+
+`;
+
+const RoleContainer = styled.div`
+  display: flex;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+  flex-direction:column
+  }
 `;
 
 
@@ -117,14 +137,16 @@ const Home = () => (
     <HeaderContainer>
       <div>
         <Name>Nicole Brooks</Name>
-        <div>
+        <RoleContainer>
           <FrontendWord>Frontend</FrontendWord>
-          {"Developer".split("").map((char, index) => (
-            <RightSmoothBouncingLetter key={index} index={index}>
-              {char}
-            </RightSmoothBouncingLetter>
-          ))}
-        </div>
+          <DeveloperWordContainer >
+            {"Developer".split("").map((char, index) => (
+              <RightSmoothBouncingLetter key={index} index={index}>
+                {char}
+              </RightSmoothBouncingLetter>
+            ))}
+          </DeveloperWordContainer>
+        </RoleContainer>
         <ShortDescription>
           Passionate frontend developer with a knack for creating intuitive and visually appealing web experiences. Enthusiastic about blending creativity with technology to craft seamless user interactions.
         </ShortDescription>

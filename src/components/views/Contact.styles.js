@@ -7,7 +7,15 @@ import Button from '../button/Button.style';
 const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width:100%;
+  width:70%;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    width:90%;
+  //  flex-direction:column
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    width:90%;
+  }
 
 `;
 

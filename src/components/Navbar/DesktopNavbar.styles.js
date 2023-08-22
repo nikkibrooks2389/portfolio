@@ -1,24 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import styled from "styled-components";
+import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
-import ThemeToggleButton from "../ThemeToggleButton/ThemeToggleButton.style.js";
+import ThemeToggleButton from '../ThemeToggleButton/ThemeToggleButton.style.js';
 
 const NavbarContainer = styled.nav`
-
   position: fixed;
   width: 100%;
   height: 60px;
   display: flex;
   justify-content: space-between;
-  align-items:center;
+  align-items: center;
   padding: 2rem;
-  z-index:1005
-  `;
+  z-index: 1005;
+`;
+
+const BlurredNavbarContainer = styled(NavbarContainer)`
+  background: ${({ theme }) => theme.colors.primaryBackground};
+`;
+
 const NavList = styled.ul`
-align-items:center;
+  align-items: center;
   list-style: none;
-  font-weight:500;
+  font-weight: 500;
   display: flex;
   gap: 2.5rem;
   margin: 0;
@@ -27,14 +31,18 @@ align-items:center;
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  color: ${props => (props.isActive ? props.theme.colors.accent : props.theme.colors.primaryText)};
+  color: ${props =>
+    props.isActive
+      ? props.theme.colors.accent
+      : props.theme.colors.primaryText};
   font-size: 1.5rem;
   cursor: pointer;
   position: relative;
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 
   &:hover {
-    color: ${props => !props.isActive && props.theme.colors.accentHover};
+    color: ${props =>
+    !props.isActive && props.theme.colors.accentHover};
   }
 
   &::after {
@@ -49,33 +57,70 @@ const NavLink = styled(Link)`
   }
 
   &:hover::after {
-    background-color: ${props => !props.isActive && props.theme.colors.secondaryText};
+    background-color: ${props =>
+    !props.isActive && props.theme.colors.secondaryText};
   }
 `;
 
-
-
 const Logo = styled.div`
-color: white;
-font - size: 24px;
-font - weight: bold;
-cursor: pointer;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
 `;
 
 const DesktopNavbar = () => {
-  const location = useLocation(); // Get the current path
-  return (
+  const [isScrolled, setIsScrolled] = useState(false);
 
-    <NavbarContainer>
-      <Logo><NavLink to="/" isActive={location.pathname === "/"}>NB</NavLink></Logo>
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const location = useLocation(); // Get the current path
+
+  const NavbarComponent = isScrolled ? BlurredNavbarContainer : NavbarContainer;
+
+  return (
+    <NavbarComponent>
+      <Logo>
+        <NavLink to="/" isActive={location.pathname === "/"}>
+          NB
+        </NavLink>
+      </Logo>
       <NavList>
-        <li><NavLink to="/about" isActive={location.pathname === "/about"}>ABOUT</NavLink></li>
-        <li><NavLink to="/projects" isActive={location.pathname === "/projects"}>PROJECTS </NavLink></li>
-        <li><NavLink to="/contact" isActive={location.pathname === "/contact"}>CONTACT</NavLink></li>
+        <li>
+          <NavLink to="/about" isActive={location.pathname === "/about"}>
+            ABOUT
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/projects"
+            isActive={location.pathname === "/projects"}
+          >
+            PROJECTS
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/contact"
+            isActive={location.pathname === "/contact"}
+          >
+            CONTACT
+          </NavLink>
+        </li>
         <ThemeToggleButton />
       </NavList>
-    </NavbarContainer>
-  )
+    </NavbarComponent>
+  );
 };
 
 export default DesktopNavbar;

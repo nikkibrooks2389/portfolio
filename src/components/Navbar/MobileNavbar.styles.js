@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from "styled-components";
 import { useLocation } from 'react-router-dom';
@@ -17,8 +17,13 @@ const NavbarContainer = styled.nav`
   z-index: 1002;
   `;
 
+
+const BlurredNavbarContainer = styled(NavbarContainer)`
+background: ${({ theme }) => theme.colors.primaryBackground};
+`;
+
 const NavList = styled.ul`
-background-color: ${props => props.theme.colors.primaryBackground};
+background: ${({ theme }) => theme.colors.primaryBackground};
 position: fixed;
 width: 100%;
 height: 100vh;
@@ -74,6 +79,7 @@ const Logo = styled.div`
 
 const MobileNavbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const location = useLocation(); // Get the current path
 
@@ -85,13 +91,29 @@ const MobileNavbar = () => {
     setMenuOpen(false); // Close the menu when a link is clicked
   };
 
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const NavbarComponent = isScrolled ? BlurredNavbarContainer : NavbarContainer;
+
+
   return (
     <>
-      <NavbarContainer>
+      <NavbarComponent>
         <Logo><NavLink to="/" onClick={handleNavLinkClick} isActive={location.pathname === "/"}>NB</NavLink></Logo>
         <ThemeToggleButton />
         <Hamburger onClick={handleMenuToggle} isOpen={isMenuOpen} />
-      </NavbarContainer>
+      </NavbarComponent>
 
       <NavList isOpen={isMenuOpen}>
         <NavItem isActive={location.pathname === "/about"}><NavLink to="/about" onClick={handleNavLinkClick} isActive={location.pathname === "/about"}>About</NavLink></NavItem>
