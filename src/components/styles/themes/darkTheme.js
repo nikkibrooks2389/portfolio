@@ -1,9 +1,11 @@
-import { fonts, breakpoints } from './sharedStyles';
+import { breakpoints } from './sharedStyles';
 
 export const darkTheme = {
     mode: "dark",
     colors: {
-        primaryBackground: '#2B2B2B', // Dark gray
+        // primaryBackground: "radial-gradient(circle at center, #223f6b, #000000)",
+        primaryBackground: "radial-gradient(circle at center, #1b355b, #000000)",
+
         secondaryBackground: '#595959', // Gray
         tertiaryBackground: '#7D7D7D', // Light gray
         quaternaryBackground: '#A5A5A5', // Even lighter gray
@@ -25,13 +27,6 @@ export const darkTheme = {
         tertiaryAccentLight: '#FFD54F',
         tertiaryAccentDark: '#E5B500',
 
-        quaternaryAccent: '#32CD32',
-        quaternaryAccentLight: '#5CE65C',
-        quaternaryAccentDark: '#28A528',
-
-        highlight: '#9B5151',
-        highlightLight: '#B76969',
-        highlightDark: '#852E2E',
 
         warning: '#FFD700',
         warningLight: '#FFE833',
@@ -49,8 +44,12 @@ export const darkTheme = {
         neutralLight: '#7D7D7D', // Lighter gray
         neutralDark: '#2B2B2B',  // Darker gray
 
-        inputBackgroundFocus: '#1E1E1E'
+        inputBorder: "#182e50",
+        inputBackgroundFocus: '#0a1320'
     },
-    fonts,
+    fonts: {
+        primary: '"Playfair Display", serif', // Use Playfair Display as the primary font
+        secondary: '"Roboto", sans-serif', // 
+    },
     breakpoints,
 };

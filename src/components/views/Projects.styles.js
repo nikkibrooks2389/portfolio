@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { ViewsWrapper } from "./ViewsWrapper";
 import { slideUpFadeIn, slideInFromRightFadeIn } from "../styles/keyframes";
+import NextPageLink from "../Links/NextPageLink.style";
+
 export const ProjectsContainer = styled.div`
  display:flex ;
  width:100%;
@@ -20,6 +22,7 @@ const Projects = () => (
     <ViewsWrapper>
         <ProjectsContainer>
             <ProjectsHeader>Projects.</ProjectsHeader>
+            <NextPageLink to="/contact" animationDelay="1s">  Contact Me</NextPageLink>
         </ProjectsContainer>
     </ViewsWrapper>
 );

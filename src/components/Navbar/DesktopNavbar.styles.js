@@ -29,38 +29,45 @@ const NavList = styled.ul`
   padding: 0;
 `;
 
+
+
 const NavLink = styled(Link)`
   text-decoration: none;
+  position: relative;
   color: ${props =>
     props.isActive
       ? props.theme.colors.accent
       : props.theme.colors.primaryText};
   font-size: 1.5rem;
   cursor: pointer;
-  position: relative;
-  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  transition: color 0.3s ease;
 
   &:hover {
     color: ${props =>
-    !props.isActive && props.theme.colors.accentHover};
+    !props.isActive && props.theme.colors.accent};
   }
 
   &::after {
     content: "";
     position: absolute;
-    left: 0;
     bottom: -2px;
-    width: ${props => (props.isActive ? "100%" : 0)};
+    left: 0;
+    width: 0;
     height: 2px;
-    background-color: ${props => props.theme.colors.accent};
-    transition: width 0.3s ease-in-out;
+    background-color: ${props =>
+    !props.isActive
+      ? props.theme.colors.accent
+      : 'transparent'};
+    transition: width 0.3s ease;
   }
 
   &:hover::after {
+    width: 100%;
     background-color: ${props =>
-    !props.isActive && props.theme.colors.secondaryText};
+    !props.isActive && props.theme.colors.accent};
   }
 `;
+
 
 const Logo = styled.div`
   color: white;

@@ -14,9 +14,9 @@ const DropdownContent = styled.div`
   background-color: #ffffff;
   min-width: 180px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1006;
   border-radius: 5px;
   overflow: hidden; 
+  z-index: 1006;
   top: 110%;
   left: 0;
   transition: opacity 0.3s;

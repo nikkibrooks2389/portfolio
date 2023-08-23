@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-import { lightTheme, darkTheme } from '../styles/themes'
+import { lightTheme, darkTheme, unicornTheme } from '../styles/themes'
 
 
 export const ThemeContext = createContext();
@@ -17,12 +17,14 @@ export const ThemeProvider = ({ children }) => {
         if (theme === lightTheme) {
             setTheme(darkTheme);
             localStorage.setItem('theme', 'dark');
+        } else if (theme === darkTheme) {
+            setTheme(unicornTheme);
+            localStorage.setItem('theme', 'unicorn');
         } else {
             setTheme(lightTheme);
             localStorage.setItem('theme', 'light');
         }
     };
-
 
     // Synchronize the state with local storage
     useEffect(() => {

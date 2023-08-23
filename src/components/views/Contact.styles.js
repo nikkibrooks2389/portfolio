@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { ViewsWrapper } from './ViewsWrapper';
 import { slideUpFadeIn, slideInFromRightFadeIn } from '../styles/keyframes';
+import NextPageLink from '../Links/NextPageLink.style';
 import Button from '../button/Button.style';
 
 const ContactContainer = styled.div`
@@ -11,7 +12,7 @@ const ContactContainer = styled.div`
   
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     width:90%;
-  //  flex-direction:column
+ 
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     width:90%;
@@ -37,7 +38,7 @@ opacity: 0;
 const ContactForm = styled.form`
   width: 100%;
   max-width: 1200px;
-  margin: 2rem 0;
+  margin: 2rem 0 3rem 0;
 `;
 
 const FormInput = styled.input`
@@ -45,8 +46,8 @@ const FormInput = styled.input`
   width: 100%;
   padding: 1rem;
   margin: 0.8rem 0;
-  border: 1px solid ${({ theme }) => theme.colors.neutralLight};
-  background-color: ${({ theme }) => theme.colors.primaryBackground};
+  border: 1px solid ${({ theme }) => theme.colors.inputBorder};
+  background:transparent;
   border-radius: 5px;
   font-size: 1.3rem;
   font-family: ${({ theme }) => theme.fonts.secondary};
@@ -56,7 +57,7 @@ const FormInput = styled.input`
 
   &:focus {
     outline: none;
-    background-color: ${({ theme }) => theme.colors.inputBackgroundFocus};
+    background: ${({ theme }) => theme.colors.inputBackgroundFocus};
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
   }
 `;
@@ -68,8 +69,8 @@ const FormTextArea = styled.textarea`
   padding: 1rem;
   margin: 0.8rem 0;
   font-family: ${({ theme }) => theme.fonts.secondary};
-  border: 0.3px solid ${({ theme }) => theme.colors.neutralLight};
-  background-color: ${({ theme }) => theme.colors.primaryBackground};
+  border: 0.1px solid ${({ theme }) => theme.colors.inputBorder};
+  background:transparent;
   border-radius: 5px;
   animation: ${slideUpFadeIn} 0.9s ease forwards;
   animation-delay: 0.7s;
@@ -77,7 +78,8 @@ const FormTextArea = styled.textarea`
 
   &:focus {
     outline: none;
-    background-color: ${({ theme }) => theme.colors.inputBackgroundFocus};
+    background: ${({ theme }) => theme.colors.inputBackgroundFocus};
+    opacity:.4;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
   }
 `;
@@ -223,6 +225,7 @@ const Contact = () => {
             If the problem persists, please <EmailLink href="mailto:nbrooks2389@gmail.com">contact me via email</EmailLink>.
           </Message>
         </ContactForm>
+        <NextPageLink to="/" animationDelay="1s">Back to Home</NextPageLink>
       </ContactContainer>
     </ViewsWrapper>
   );

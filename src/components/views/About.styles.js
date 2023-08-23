@@ -10,28 +10,28 @@ import Image1 from "../../../src/assets/images/nicole-img-1.jpg";
 import Image2 from "../../../src/assets/images/nicole-img-2.jpg";
 import Image4 from "../../../src/assets/images/nicole-img-4.jpg";
 import Image6 from "../../../src/assets/images/nicole-img-6.jpg";
+import NextPageLink from "../Links/NextPageLink.style";
 
 const AboutContainer = styled.div`
   display: flex;
-  width: 70%;
+  width: 80%;
+  flex-direction: column;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    width: 90%;
-    flex-direction: column;
+    width: 85%;   
   }
-`;
 
-const AboutMeSection = styled.div`
-  animation: ${slideInFromRightFadeIn} 0.7s ease forwards;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 90%;
+    text-align:center
+   
+  }
 `;
 
 const AboutMeHeader = styled.h1`
   font-size: 3.5rem;
   margin-bottom: 2rem;
   animation: ${slideInFromRightFadeIn} 0.9s ease forwards;
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    text-align: center;
-  }
 `;
 
 const AboutMeDescription = styled.p`
@@ -42,11 +42,12 @@ const AboutMeDescription = styled.p`
   font-family: ${({ theme }) => theme.fonts.secondary};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    font-size: 1.3rem;
+  }
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     order: 1;
     flex-direction: column;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 1.2rem;
   }
 `;
@@ -55,6 +56,7 @@ const AnimatedContainer = styled.div`
   animation: ${slideUpFadeIn} 0.9s forwards;
   animation-delay: 0.7s;
   opacity: 0;
+ 
 `;
 
 const SkillsSection = styled.div`
@@ -62,7 +64,7 @@ const SkillsSection = styled.div`
   flex-direction: column;
   max-width: 300px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     order: 2;
     max-width: unset;
     flex-direction: column;
@@ -75,7 +77,7 @@ const SkillSection = styled.div`
   flex-direction: column;
   margin-bottom: 1rem;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     align-items: center;
     max-width: 100%;
     margin: 10px;
@@ -89,9 +91,9 @@ const SkillSection = styled.div`
 const SkillAboutContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 1.5rem;
+  margin: 1.5rem 0 3rem 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     flex-direction: column;
   }
 `;
@@ -102,10 +104,6 @@ const Skill = styled.span`
   padding: 0.2rem;
   line-height: 1.5;
   font-size: 1.3rem;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    font-size: 1.4rem;
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 1.2rem;
@@ -139,46 +137,47 @@ const About = () => {
   return (
     <ViewsWrapper>
       <AboutContainer>
-        <AboutMeSection>
-          <AboutMeHeader>About Me.</AboutMeHeader>
-          <AnimatedContainer>
-            <ResumeSection>
-              <Resume />
-            </ResumeSection>
-            <SkillAboutContainer>
-              <SkillsSection>
-                <SkillSection>
-                  <SkillHeader>Frontend Tools</SkillHeader>
-                  <Skill>
-                    JavaScript(ES6+), HTML5, CSS3/SCS, React, React Native,
-                    Redux/Redux Toolkit, Bootstrap, MUI / MUI Base, Antd,
-                    Styled Components, AmCharts
-                  </Skill>
-                </SkillSection>
 
-                <SkillSection>
-                  <SkillHeader>Backend Tools</SkillHeader>
-                  <Skill>Node.js, Express</Skill>
-                </SkillSection>
+        <AboutMeHeader>About Me.</AboutMeHeader>
+        <AnimatedContainer>
+          <ResumeSection>
+            <Resume />
+          </ResumeSection>
+          <SkillAboutContainer>
+            <SkillsSection>
+              <SkillSection>
+                <SkillHeader>Frontend Tools</SkillHeader>
+                <Skill>
+                  JavaScript(ES6+), HTML5, CSS3/SCS, React, React Native,
+                  Redux/Redux Toolkit, Bootstrap, MUI / MUI Base, Antd,
+                  Styled Components, AmCharts
+                </Skill>
+              </SkillSection>
 
-                <SkillSection>
-                  <SkillHeader>DevOps</SkillHeader>
-                  <Skill>Git, GitHub, Bitbucket, Docker, Aws</Skill>
-                </SkillSection>
-              </SkillsSection>
-              <AboutMeDescription>
-                Hello, my name is Nicole Brooks, originally from Massachusetts and now thriving in sunny San Diego, California. I'm a frontend developer with a design flair and an innovative spirit.<br /><br />
+              <SkillSection>
+                <SkillHeader>Backend Tools</SkillHeader>
+                <Skill>Node.js, Express</Skill>
+              </SkillSection>
 
-                My journey into tech world started at Learn Academy's coding bootcamp, a turning point that ignited my passion for frontend magic.
-                Following that, I embarked on an exciting internship at Victorise, where I refined my skills even further. This rewarding path led me to my most recent role as a frontend developer at iCompaas. Here, I've been crafting engaging features and evolving alongside a dynamic team.<br /><br />
+              <SkillSection>
+                <SkillHeader>DevOps</SkillHeader>
+                <Skill>Git, GitHub, Bitbucket, Docker, Aws</Skill>
+              </SkillSection>
+            </SkillsSection>
+            <AboutMeDescription>
+              Hello, my name is Nicole Brooks, originally from Massachusetts and now thriving in sunny San Diego, California. I'm a frontend developer with a design flair and an innovative spirit.<br /><br />
 
-                I'm rapid learner with a strong work ethic, I flourish in collaborative environments, always eager to both share knowledge and learn from peers. In my free time, you'll  find me hanging out with my dogs, skateboarding around San Diego, or simply soaking up the sun at the beach.<br /><br />
+              My journey into tech world started at Learn Academy's coding bootcamp, a turning point that ignited my passion for frontend magic.
+              Following that, I embarked on an exciting internship at Victorise, where I refined my skills even further. This rewarding path led me to my most recent role as a frontend developer at iCompaas. Here, I've been crafting engaging features and evolving alongside a dynamic team.<br /><br />
 
-                I'm actively exploring new frontend opportunities, eager to bring my expertise and passion to dynamic teams. If you'd like to connect or discuss potential collaborations, please feel free to reach out to me through my <ContactMe to={"/contact"}>Contact Page</ContactMe>
-              </AboutMeDescription>
-            </SkillAboutContainer>
-          </AnimatedContainer>
-        </AboutMeSection>
+              I'm rapid learner with a strong work ethic, I flourish in collaborative environments, always eager to both share knowledge and learn from peers. In my free time, you'll  find me hanging out with my dogs, skateboarding around San Diego, or simply soaking up the sun at the beach.<br /><br />
+
+              I'm actively exploring new frontend opportunities, eager to bring my expertise and passion to dynamic teams. If you'd like to connect or discuss potential collaborations, please feel free to reach out to me through my <ContactMe to={"/contact"}>Contact Page</ContactMe>
+            </AboutMeDescription>
+          </SkillAboutContainer>
+        </AnimatedContainer>
+
+        <NextPageLink to="/projects" animationDelay="1s">Continue To Projects</NextPageLink>
       </AboutContainer>
     </ViewsWrapper>
   );

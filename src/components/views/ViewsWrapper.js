@@ -5,7 +5,6 @@ export const ViewsWrapper = styled.div`
   display:flex;
   justify-content:center;
   min-height:100vh;
-
   padding: 90px 20px 20px 20px;
   background: ${({ theme }) => theme.colors.primaryBackground};
   color: ${props => props.theme.colors.primaryText};

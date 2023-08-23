@@ -1,56 +1,27 @@
 import styled, { keyframes } from "styled-components";
+import { slideUpFadeIn } from "../styles/keyframes";
 import { ViewsWrapper } from "./ViewsWrapper";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import NextPageLink from "../Links/NextPageLink.style";
 
 export const HeaderContainer = styled.div`
-
   display :flex;
-flex-direction:column;
- margin-top:8rem;
- align-items:center
-
-
-`;
-const slideUpFadeIn = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  flex-direction:column;
+  margin-top:8rem;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+   align-items:center
+    }
 `;
 
 const Name = styled.div`
-font-size: 2.5rem;
-margin-left:1rem;
-font-weight:500;
-color:${props => props.theme.colors.accent};
-opacity: 0; // Start hidden
-  transform: translateY(20px); // Start slightly below
-  animation: ${slideUpFadeIn} 0.5s forwards; // Apply the animation
-  animation-delay: 2.2s; // Optional: Delay the animation so it happens after the "Frontend" animation. Adjust the time as needed.
-
+  font-size: 2.5rem;
+  margin-left:1rem;
+  font-weight:500;
+  color:${props => props.theme.colors.accent};
+  opacity: 0; 
+  transform: translateY(20px); 
+  animation: ${slideUpFadeIn} 0.5s forwards; 
+  animation-delay: 2.2s;
 `;
-
-const AboutMe = styled(Link)`
-text-decoration:none;
-font-size: 1.3rem;
-cursor:pointer;
-font-weight:500;
-max-height:100vh;
-color:${props => props.theme.colors.secondaryText};
-opacity: 0; // Start hidden
-  transform: translateY(20px); // Start slightly below
-  animation: ${slideUpFadeIn} 0.5s forwards; // Apply the animation
-  animation-delay: 2.5s; // Optional: Delay the animation so it happens after the "Frontend" animation. Adjust the time as needed.
-
- 
-  `;
-
 
 const slideWithBounce = keyframes`
 0% { transform: translateX(-100vw); }
@@ -73,7 +44,10 @@ const FrontendWord = styled.div`
 const DeveloperWordContainer = styled.div`
   display: flex;
  align-items:end;
- padding-bottom:1rem
+ padding-bottom:1rem;
+ @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+  justify-content:center
+  }
 
 `;
 
@@ -101,57 +75,46 @@ const RightSmoothBouncingLetter = styled.span`
 
 `;
 
-
-
-const bounceArrow = keyframes`
-  0%, 100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(20px);
-  }
-`;
-
-const AnimatedArrow = styled(FontAwesomeIcon)`
-  font-size: 1,5rem;
-  color: ${props => props.theme.colors.secondaryAccent};
-  animation: ${bounceArrow} 1s alternate infinite;
-`;
-
 const ShortDescription = styled.p`
   font-size: 1.3rem;
-  color: ${props => props.theme.colors.secondaryText};
+  color: ${({ theme }) => theme.colors.secondaryText};
+  font-family: ${({ theme }) => theme.fonts.secondary};
   text-align: start;
   max-width: 700px;
-  margin: 1rem 0;
+  margin: 1rem 0 2rem 0;
   opacity: 0; // Start hidden
   transform: translateY(20px); // Start slightly below
   animation: ${slideUpFadeIn} 0.5s forwards; // Apply the animation
-  animation-delay: 2.4s; // Optional: Delay the animation so it happens after the "Frontend" animation. Adjust the time as needed.
+  animation-delay: 2.4s; 
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    max-width:550px;
+    text-align:center;
+    }
+  `;
 
-`;
+
 
 
 const Home = () => (
   <ViewsWrapper>
     <HeaderContainer>
-      <div>
-        <Name>Nicole Brooks</Name>
-        <RoleContainer>
-          <FrontendWord>Frontend</FrontendWord>
-          <DeveloperWordContainer >
-            {"Developer".split("").map((char, index) => (
-              <RightSmoothBouncingLetter key={index} index={index}>
-                {char}
-              </RightSmoothBouncingLetter>
-            ))}
-          </DeveloperWordContainer>
-        </RoleContainer>
-        <ShortDescription>
-          Passionate frontend developer with a knack for creating intuitive and visually appealing web experiences. Enthusiastic about blending creativity with technology to craft seamless user interactions.
-        </ShortDescription>
-        <AboutMe to="/about"> More About Me  <AnimatedArrow icon={faArrowRightLong} /></AboutMe>
-      </div>
+
+      <Name>Nicole Brooks</Name>
+      <RoleContainer>
+        <FrontendWord>Frontend</FrontendWord>
+        <DeveloperWordContainer >
+          {"Developer".split("").map((char, index) => (
+            <RightSmoothBouncingLetter key={index} index={index}>
+              {char}
+            </RightSmoothBouncingLetter>
+          ))}
+        </DeveloperWordContainer>
+      </RoleContainer>
+      <ShortDescription>
+        Passionate frontend developer with a knack for creating intuitive and visually appealing web experiences. Enthusiastic about blending creativity with technology to craft seamless user interactions.
+      </ShortDescription>
+      <NextPageLink to="/about" animationDelay="2.5s"> More About Me </NextPageLink>
+
     </HeaderContainer>
   </ViewsWrapper>
 );
