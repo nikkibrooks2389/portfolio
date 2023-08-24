@@ -15,6 +15,7 @@ import NextPageLink from "../Links/NextPageLink.style";
 const AboutContainer = styled.div`
   display: flex;
   width: 80%;
+  padding-top:150px;
   flex-direction: column;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
@@ -91,7 +92,7 @@ const SkillSection = styled.div`
 const SkillAboutContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 1.5rem 0 3rem 0;
+  margin: 1.5rem 0 5rem 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     flex-direction: column;
@@ -123,7 +124,7 @@ const ContactMe = styled(Link)`
 `;
 
 const ResumeSection = styled.div`
-  margin: 3rem 0;
+  margin: 2rem 0;
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     display: flex;
     justify-content: center;

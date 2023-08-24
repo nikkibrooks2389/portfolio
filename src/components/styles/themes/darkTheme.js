@@ -4,7 +4,8 @@ export const darkTheme = {
     mode: "dark",
     colors: {
         // primaryBackground: "radial-gradient(circle at center, #223f6b, #000000)",
-        primaryBackground: "radial-gradient(circle at center, #1b355b, #000000)",
+        primaryBackground: "#11212a",
+        //  "radial-gradient(circle at center, #1b355b, #000000)",
 
         secondaryBackground: '#595959', // Gray
         tertiaryBackground: '#7D7D7D', // Light gray
@@ -15,7 +16,7 @@ export const darkTheme = {
         tertiaryText: '#B0B0B0', // Darker gray
         quaternaryText: '#A0A0A0', // Even darker gray
 
-        accent: '#FF7733',
+        accent: '#44A3B2',
         accentHover: '#FF924E',
         accentDark: '#FF6319',
 
@@ -48,8 +49,10 @@ export const darkTheme = {
         inputBackgroundFocus: '#0a1320'
     },
     fonts: {
-        primary: '"Playfair Display", serif', // Use Playfair Display as the primary font
-        secondary: '"Roboto", sans-serif', // 
+
+        primary: '"Lato", sans-serif', // Use Lato as the primary font
+        // secondary: '"Merriweather", serif', // Use Merriweather as the seconda
+        secondary: '"Source Serif Pro", serif', // Use Source Serif Pro as the secondary font
     },
     breakpoints,
 };

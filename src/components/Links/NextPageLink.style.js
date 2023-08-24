@@ -23,14 +23,20 @@ const AnimatedArrow = styled(FontAwesomeIcon)`
 const StyledNextPageLink = styled(Link)`
   font-family:${({ theme }) => theme.fonts.secondary};
   text-decoration:none;
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   cursor:pointer;
   font-weight:500;
-  color:${props => props.theme.colors.secondaryText};
+  color:${props => props.theme.colors.primaryText};
   opacity: 0;
   transform: translateY(20px); 
   animation: ${slideUpFadeIn} 0.5s forwards;
   animation-delay:  ${props => props?.animationDelay};
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    font-size: 1.6rem;
+    }
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+  font-size: 1.5rem;
+  }
 
 `;
 

@@ -1,26 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import styled from "styled-components";
 import { useLocation } from 'react-router-dom';
 import Hamburger from "./HamburgerMenu.styles";
 import ThemeToggleButton from '../ThemeToggleButton/ThemeToggleButton.style';
-
-const NavbarContainer = styled.nav`
-
-  position: fixed;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items:center;
-  padding: 10px 20px;
-  z-index: 1002;
-  `;
+import BaseNavbar from './BaseNavBar.styles';
+import NavLink from './NavLink.style';
 
 
-const BlurredNavbarContainer = styled(NavbarContainer)`
-background: ${({ theme }) => theme.colors.primaryBackground};
-`;
 
 const NavList = styled.ul`
 background: ${({ theme }) => theme.colors.primaryBackground};
@@ -41,45 +27,10 @@ const NavItem = styled.li`
   margin: 15px 0; // You can adjust the value to your preference
   color: ${props => (props.isActive ? '#00aaff' : 'inherit')};
 `;
-const NavLink = styled(Link)`
-text-decoration: none;
-color: ${props => (props.isActive ? props.theme.colors.accent : props.theme.colors.primaryText)};
-font-size: 1.5rem;
-cursor: pointer;
-position: relative;
-transition: background-color 0.3s ease-in-out;
 
-&:hover {
-  color: ${props => !props.isActive && props.theme.colors.accentHover};
-}
-
-
-&::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0;
-  height: 2px;
-  background-color: ${props => props.theme.colors.accentHover};
-  transition: width 0.3s ease-in-out;
-}
-
-&:hover::after {
-  width: ${props => !props.isActive ? "100%" : "0%"}
-}
-`;
-
-const Logo = styled.div`
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  cursor: pointer;
-`;
 
 const MobileNavbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   const location = useLocation(); // Get the current path
 
@@ -92,28 +43,12 @@ const MobileNavbar = () => {
   };
 
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  const NavbarComponent = isScrolled ? BlurredNavbarContainer : NavbarContainer;
-
-
   return (
     <>
-      <NavbarComponent>
-        <Logo><NavLink to="/" onClick={handleNavLinkClick} isActive={location.pathname === "/"}>NB</NavLink></Logo>
+      <BaseNavbar location={location}>
         <ThemeToggleButton />
         <Hamburger onClick={handleMenuToggle} isOpen={isMenuOpen} />
-      </NavbarComponent>
+      </BaseNavbar>
 
       <NavList isOpen={isMenuOpen}>
         <NavItem isActive={location.pathname === "/about"}><NavLink to="/about" onClick={handleNavLinkClick} isActive={location.pathname === "/about"}>About</NavLink></NavItem>

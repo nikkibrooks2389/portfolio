@@ -6,21 +6,27 @@ import NextPageLink from "../Links/NextPageLink.style";
 export const HeaderContainer = styled.div`
   display :flex;
   flex-direction:column;
-  margin-top:8rem;
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-   align-items:center
-    }
+  justify-content:center; 
+
+   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+   align-items:center;
+  }
 `;
 
 const Name = styled.div`
-  font-size: 2.5rem;
-  margin-left:1rem;
+  font-size: 5rem;
   font-weight:500;
   color:${props => props.theme.colors.accent};
   opacity: 0; 
   transform: translateY(20px); 
   animation: ${slideUpFadeIn} 0.5s forwards; 
   animation-delay: 2.2s;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    font-size: 4.5rem;
+    }
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+      font-size: 3rem;
+      }
 `;
 
 const slideWithBounce = keyframes`
@@ -33,10 +39,12 @@ const slideWithBounce = keyframes`
 `;
 const FrontendWord = styled.div`
   display: inline-block;
-  font-size: 7rem;
+  font-size: 8.5rem;
   margin-right:5px;
   animation: ${slideWithBounce} 0.9s forwards;
-
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    font-size: 7.5rem;
+    }
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
   font-size: 5rem;
   }
@@ -76,19 +84,23 @@ const RightSmoothBouncingLetter = styled.span`
 `;
 
 const ShortDescription = styled.p`
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   color: ${({ theme }) => theme.colors.secondaryText};
   font-family: ${({ theme }) => theme.fonts.secondary};
   text-align: start;
-  max-width: 700px;
+  max-width: 700px; 
   margin: 1rem 0 2rem 0;
   opacity: 0; // Start hidden
   transform: translateY(20px); // Start slightly below
   animation: ${slideUpFadeIn} 0.5s forwards; // Apply the animation
   animation-delay: 2.4s; 
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    font-size: 1.6rem;
+    }
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     max-width:550px;
     text-align:center;
+    font-size: 1.4rem;
     }
   `;
 

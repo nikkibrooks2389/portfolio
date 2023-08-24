@@ -1,0 +1,55 @@
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+
+
+const StyledNavLink = styled(Link)`
+text-decoration: none;
+position: relative;
+color: ${props =>
+    props.isActive
+      ? props.theme.colors.accent
+      : props.theme.colors.primaryText};
+font-size: 1.8rem;
+cursor: pointer;
+transition: color 0.3s ease;
+
+&:hover {
+  color: ${props =>
+    !props.isActive && props.theme.colors.accent};
+}
+
+&::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: ${props =>
+    !props.isActive
+      ? props.theme.colors.accent
+      : 'transparent'};
+  transition: width 0.3s ease;
+}
+
+&:hover::after {
+  width: 100%;
+  background-color: ${props =>
+    !props.isActive && props.theme.colors.accent};
+}
+  transition: color 0.3s ease;
+  }
+`;
+
+const NavLink = ({ to, isActive, onClick, children }) => {
+
+  return (
+    <StyledNavLink onClick={onClick} to={to} isActive={isActive}>
+      {children}
+    </StyledNavLink>
+  )
+
+}
+
+export default NavLink

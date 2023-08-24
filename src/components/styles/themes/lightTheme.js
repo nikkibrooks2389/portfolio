@@ -4,17 +4,18 @@ import { breakpoints } from './sharedStyles';
 export const lightTheme = {
     mode: "light",
     colors: {
-        primaryBackground: '#f2f2f2', // Light Gray
+        primaryBackground: '#d3dddc', // Light Green
+
         secondaryBackground: '#E0E0E0', // Slightly Darker Gray
         tertiaryBackground: '#D3D3D3', // Lighter Gray
         quaternaryBackground: '#B2B2B2', // Dark Gray
 
-        primaryText: '#404040', // Dark Gray
-        secondaryText: '#666666', // Gray
-        tertiaryText: '#999999', // Light Gray
+        primaryText: '#484848', // Dark Gray
+        secondaryText: '#898989', // Gray
+        tertiaryText: '#898989', // Light Gray
         quaternaryText: '#CCCCCC', // Lighter Gray
 
-        accent: '#FFA726', // Orange
+        accent: '#44A3B2', // Orange
         accentLight: '#FFCB62', // Light Orange
         accentDark: '#FF8C00', // Dark Orange
         accentHover: '#FFB733', // Hover color

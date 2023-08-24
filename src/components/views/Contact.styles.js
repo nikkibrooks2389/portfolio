@@ -9,7 +9,7 @@ const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
   width:70%;
-  
+  padding-top:150px;
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     width:90%;
  

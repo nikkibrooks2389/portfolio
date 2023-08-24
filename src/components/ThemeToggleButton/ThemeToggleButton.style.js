@@ -9,8 +9,8 @@ const Button = styled.button`
   // color: ${(props) => props.theme.colors.primaryBackground}; // Color of the theme background
   border: none;
   border-radius: 50%; // Makes the button circular
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   cursor: pointer;
   display: flex;
   align-items: center;

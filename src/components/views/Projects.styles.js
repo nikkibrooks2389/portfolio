@@ -3,12 +3,21 @@ import { ViewsWrapper } from "./ViewsWrapper";
 import { slideUpFadeIn, slideInFromRightFadeIn } from "../styles/keyframes";
 import NextPageLink from "../Links/NextPageLink.style";
 
-export const ProjectsContainer = styled.div`
- display:flex ;
- width:100%;
- padding: 20px;
-`;
+const ProjectsContainer = styled.div`
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  padding-top:150px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    width: 85%;   
+  }
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 90%;
+    text-align:center
+   
+  }
+`;
 
 const ProjectsHeader = styled.h1`
   font-size: 3.5rem;
