@@ -26,6 +26,7 @@ const StyledNextPageLink = styled(Link)`
   font-size: 1.7rem;
   cursor:pointer;
   font-weight:500;
+  padding-bottom:2rem;
   color:${props => props.theme.colors.primaryText};
   opacity: 0;
   transform: translateY(20px); 
@@ -33,9 +34,15 @@ const StyledNextPageLink = styled(Link)`
   animation-delay:  ${props => props?.animationDelay};
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 1.6rem;
-    }
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-  font-size: 1.5rem;
+    font-size: 1.6rem;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
+  font-size: 1.2rem;
+  text-align:center
   }
 
 `;

@@ -7,26 +7,27 @@ export const HeaderContainer = styled.div`
   display :flex;
   flex-direction:column;
   justify-content:center; 
-
-   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-   align-items:center;
-  }
 `;
 
 const Name = styled.div`
-  font-size: 5rem;
-  font-weight:500;
+  font-size: 3rem;
+  font-weight:300;
   color:${props => props.theme.colors.accent};
   opacity: 0; 
   transform: translateY(20px); 
   animation: ${slideUpFadeIn} 0.5s forwards; 
   animation-delay: 2.2s;
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    font-size: 4.5rem;
-    }
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-      font-size: 3rem;
-      }
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 2.1rem;
+  };
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
+      font-size: 1.4rem;
+  }
 `;
 
 const slideWithBounce = keyframes`
@@ -37,33 +38,36 @@ const slideWithBounce = keyframes`
 94% { transform: translateX(-1px); }
 100% { transform: translateX(0); }
 `;
+
 const FrontendWord = styled.div`
-  display: inline-block;
-  font-size: 8.5rem;
+  font-size: 12rem;
   margin-right:5px;
   animation: ${slideWithBounce} 0.9s forwards;
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    font-size: 7.5rem;
-    }
+    font-size: 9rem;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-  font-size: 5rem;
+    font-size: 7rem;
+  };
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
+  font-size: 4rem;
   }
 `;
 const DeveloperWordContainer = styled.div`
-  display: flex;
- align-items:end;
- padding-bottom:1rem;
- @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-  justify-content:center
+ padding-bottom:1.7rem;
+ @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
+ 
+  padding-bottom:1.2rem;
   }
-
 `;
 
 const RoleContainer = styled.div`
   display: flex;
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-  flex-direction:column
-  }
+  flex-direction:column;
+  align-items:center;
+  justifycontent:center
 `;
 
 
@@ -75,32 +79,48 @@ const slideInRightWithSmoothBounce = keyframes`
 `;
 
 const RightSmoothBouncingLetter = styled.span`
-  display: inline-block;
-  font-size: 3rem;
+  // display: inline-bl
+  font-size: 8rem;
   transform: translateX(100vw); // Begin from the right
   animation: ${slideInRightWithSmoothBounce} 0.7s forwards;
   animation-delay: ${props => 0.3 + props.index * 0.15}s; // Added a 0.7s delay for the entire word
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    font-size: 7rem;
+  }
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 5rem;
+  };
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
+  font-size: 3rem;
+  }
 `;
 
 const ShortDescription = styled.p`
   font-size: 1.7rem;
   color: ${({ theme }) => theme.colors.secondaryText};
   font-family: ${({ theme }) => theme.fonts.secondary};
-  text-align: start;
-  max-width: 700px; 
-  margin: 1rem 0 2rem 0;
+  text-align: center;
+  max-width: 800px; 
+  margin: 1rem 0 4rem 0;
   opacity: 0; // Start hidden
   transform: translateY(20px); // Start slightly below
   animation: ${slideUpFadeIn} 0.5s forwards; // Apply the animation
   animation-delay: 2.4s; 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 1.6rem;
-    }
+    max-width: 650px; 
+    };
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    max-width:550px;
+      max-width:500px;
+      text-align:center;
+      font-size: 1.8rem;
+  };
+  @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
+    max-width:300px;
     text-align:center;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     }
   `;
 
@@ -111,7 +131,7 @@ const Home = () => (
   <ViewsWrapper>
     <HeaderContainer>
 
-      <Name>Nicole Brooks</Name>
+      <Name>NICOLE BROOKS</Name>
       <RoleContainer>
         <FrontendWord>Frontend</FrontendWord>
         <DeveloperWordContainer >

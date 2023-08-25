@@ -10,7 +10,7 @@ color: ${props =>
     props.isActive
       ? props.theme.colors.accent
       : props.theme.colors.primaryText};
-font-size: 1.8rem;
+font-size: ${props => props.isMobile ? "3rem" : "2rem"};
 cursor: pointer;
 transition: color 0.3s ease;
 
@@ -42,10 +42,10 @@ transition: color 0.3s ease;
   }
 `;
 
-const NavLink = ({ to, isActive, onClick, children }) => {
+const NavLink = ({ to, isActive, onClick, children, isMobile = false }) => {
 
   return (
-    <StyledNavLink onClick={onClick} to={to} isActive={isActive}>
+    <StyledNavLink onClick={onClick} to={to} isActive={isActive} isMobile={isMobile}>
       {children}
     </StyledNavLink>
   )

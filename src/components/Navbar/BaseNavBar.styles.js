@@ -9,10 +9,9 @@ const NavbarContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: ${({ theme, isMenuOpen }) => (isMenuOpen ? theme.colors.primaryBackground : "none")};
   padding: 2rem;
-    // padding: 10px 20px;
   z-index: 1005;
-  /* Shared styles for NavbarContainer */
 `;
 
 
@@ -28,7 +27,7 @@ background: ${({ theme }) => theme.colors.primaryBackground};
 `;
 
 
-const BaseNavbar = ({ children, location }) => {
+const BaseNavbar = ({ children, location, isMenuOpen = false }) => {
     const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {
@@ -48,7 +47,7 @@ const BaseNavbar = ({ children, location }) => {
 
 
     return (
-        <NavbarComponent>
+        <NavbarComponent isMenuOpen={isMenuOpen}>
             <Logo>
                 <NavLink to="/" isActive={location.pathname === "/"}>
                     NB

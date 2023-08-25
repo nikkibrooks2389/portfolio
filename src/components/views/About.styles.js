@@ -112,7 +112,10 @@ const Skill = styled.span`
 `;
 
 const SkillHeader = styled.h3`
-  font-size: 1.6rem;
+  font-size: 1.7rem;
+  margin-bottom:.5rem;
+  font-weight:300;
+  text-decoration:underline;
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 1.4rem;
   }

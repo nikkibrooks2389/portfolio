@@ -10,6 +10,7 @@ import NavLink from './NavLink.style';
 
 const NavList = styled.ul`
 background: ${({ theme }) => theme.colors.primaryBackground};
+padding-top:3rem;
 position: fixed;
 width: 100%;
 height: 100vh;
@@ -24,7 +25,7 @@ transition: top 0.8s ease; // Add a transition
 `;
 
 const NavItem = styled.li`
-  margin: 15px 0; // You can adjust the value to your preference
+  padding: 1.5rem 0;
   color: ${props => (props.isActive ? '#00aaff' : 'inherit')};
 `;
 
@@ -45,15 +46,15 @@ const MobileNavbar = () => {
 
   return (
     <>
-      <BaseNavbar location={location}>
+      <BaseNavbar isMenuOpen={isMenuOpen} location={location}>
         <ThemeToggleButton />
         <Hamburger onClick={handleMenuToggle} isOpen={isMenuOpen} />
       </BaseNavbar>
 
       <NavList isOpen={isMenuOpen}>
-        <NavItem isActive={location.pathname === "/about"}><NavLink to="/about" onClick={handleNavLinkClick} isActive={location.pathname === "/about"}>About</NavLink></NavItem>
-        <NavItem isActive={location.pathname === "/projects"}><NavLink to="/projects" onClick={handleNavLinkClick} isActive={location.pathname === "/projects"}>Projects</NavLink></NavItem>
-        <NavItem isActive={location.pathname === "/contact"}><NavLink to="/contact" onClick={handleNavLinkClick} isActive={location.pathname === "/contact"}> Contact</NavLink></NavItem>
+        <NavItem isActive={location.pathname === "/about"}><NavLink isMobile={true} to="/about" onClick={handleNavLinkClick} isActive={location.pathname === "/about"}>About</NavLink></NavItem>
+        <NavItem isActive={location.pathname === "/projects"}><NavLink isMobile={true} to="/projects" onClick={handleNavLinkClick} isActive={location.pathname === "/projects"}>Projects</NavLink></NavItem>
+        <NavItem isActive={location.pathname === "/contact"}><NavLink isMobile={true} to="/contact" onClick={handleNavLinkClick} isActive={location.pathname === "/contact"}> Contact</NavLink></NavItem>
       </NavList>
 
     </>

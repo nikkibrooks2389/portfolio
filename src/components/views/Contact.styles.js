@@ -47,7 +47,7 @@ const FormInput = styled.input`
   padding: 1rem;
   margin: 0.8rem 0;
   border: 1px solid ${({ theme }) => theme.colors.inputBorder};
-  background:transparent;
+  background:${({ theme }) => theme.colors.primaryBackground};
   border-radius: 5px;
   font-size: 1.3rem;
   font-family: ${({ theme }) => theme.fonts.secondary};
@@ -70,7 +70,7 @@ const FormTextArea = styled.textarea`
   margin: 0.8rem 0;
   font-family: ${({ theme }) => theme.fonts.secondary};
   border: 0.1px solid ${({ theme }) => theme.colors.inputBorder};
-  background:transparent;
+  background:${({ theme }) => theme.colors.primaryBackground};
   border-radius: 5px;
   animation: ${slideUpFadeIn} 0.9s ease forwards;
   animation-delay: 0.7s;
