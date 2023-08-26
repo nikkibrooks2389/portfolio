@@ -55,13 +55,6 @@ const FrontendWord = styled.div`
   font-size: 4rem;
   }
 `;
-const DeveloperWordContainer = styled.div`
- padding-bottom:1.7rem;
- @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
- 
-  padding-bottom:1.2rem;
-  }
-`;
 
 const RoleContainer = styled.div`
   display: flex;
@@ -71,29 +64,34 @@ const RoleContainer = styled.div`
 `;
 
 
+const DeveloperWordContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 const slideInRightWithSmoothBounce = keyframes`
-  0% { transform: translateX(100vw); } // Start from the right
-  80% { transform: translateX(-5px); } // Bounce effect
-  90% { transform: translateX(2.5px); } 
-  100% { transform: translateX(0); } // Settle
+  0% { transform: translateX(100vw); }
+  80% { transform: translateX(-5px); }
+  90% { transform: translateX(2.5px); }
+  100% { transform: translateX(0); }
 `;
 
 const RightSmoothBouncingLetter = styled.span`
-  // display: inline-bl
   font-size: 8rem;
-  transform: translateX(100vw); // Begin from the right
+  transform: translateX(100vw);
   animation: ${slideInRightWithSmoothBounce} 0.7s forwards;
-  animation-delay: ${props => 0.3 + props.index * 0.15}s; // Added a 0.7s delay for the entire word
+  animation-delay: ${(props) => 0.3 + props.index * 0.15}s;
+
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 7rem;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 5rem;
-  };
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
-  font-size: 3rem;
+    font-size: 3rem;
   }
 `;
 
