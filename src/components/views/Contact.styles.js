@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { ViewsWrapper } from './ViewsWrapper';
-import { slideUpFadeIn, slideInFromRightFadeIn } from '../styles/keyframes';
+import { slideUpFadeIn, } from '../styles/keyframes';
 import NextPageLink from '../Links/NextPageLink.style';
 import Button from '../button/Button.style';
+import PageHeader from '../pageHeader/PageHeader.styles';
 
 const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width:70%;
   padding-top:150px;
+  width:80%;
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     width:90%;
  
@@ -17,28 +18,35 @@ const ContactContainer = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     width:90%;
   }
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    align-items:center
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
+    padding-top:120px;
+  }
 
 `;
 
-const ContactHeader = styled.h1`
-  font-size: 3.5rem;
-  margin-bottom: 2rem;
-  animation: ${slideInFromRightFadeIn} 0.9s ease forwards;
-  opacity: 0;
-`;
-
-const EmailMessage = styled.p`
+const Message1 = styled.p`
 color: ${({ theme }) => theme.colors.secondaryText};
 font-family: ${({ theme }) => theme.fonts.secondary};
 font-size: 1.3rem;
-animation: ${slideInFromRightFadeIn} 0.7s ease forwards;
-opacity: 0;
+animation: ${slideUpFadeIn} 0.9s forwards;
+  animation-delay: 0.7s;
+  opacity: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+   text-align:center
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
+    font-size: 1.2rem;
+  }
 `;
 
 const ContactForm = styled.form`
   width: 100%;
-  max-width: 1200px;
-  margin: 2rem 0 3rem 0;
+  max-width: 1500px;
+  margin: 2rem 0 0 0;
 `;
 
 const FormInput = styled.input`
@@ -47,8 +55,8 @@ const FormInput = styled.input`
   padding: 1rem;
   margin: 0.8rem 0;
   border: 1px solid ${({ theme }) => theme.colors.inputBorder};
-  background:${({ theme }) => theme.colors.primaryBackground};
-  border-radius: 5px;
+  background:${({ theme, value }) => theme.mode === "unicorn"
+    ? value ? theme.colors.inputBackgroundFocus : "transparent" : value ? theme.colors.inputBackgroundFocus : theme.colors.primaryBackground};  border-radius: 5px;
   font-size: 1.3rem;
   font-family: ${({ theme }) => theme.fonts.secondary};
   animation: ${slideUpFadeIn} 0.9s forwards;
@@ -60,6 +68,10 @@ const FormInput = styled.input`
     background: ${({ theme }) => theme.colors.inputBackgroundFocus};
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
+    font-size: 1.1rem;
+  }
 `;
 
 const FormTextArea = styled.textarea`
@@ -70,11 +82,13 @@ const FormTextArea = styled.textarea`
   margin: 0.8rem 0;
   font-family: ${({ theme }) => theme.fonts.secondary};
   border: 0.1px solid ${({ theme }) => theme.colors.inputBorder};
-  background:${({ theme }) => theme.colors.primaryBackground};
+  background:${({ theme, value }) => theme.mode === "unicorn"
+    ? value ? theme.colors.inputBackgroundFocus : "transparent" : value ? theme.colors.inputBackgroundFocus : theme.colors.primaryBackground};
   border-radius: 5px;
   animation: ${slideUpFadeIn} 0.9s ease forwards;
   animation-delay: 0.7s;
   opacity: 0;
+  outline: none;
 
   &:focus {
     outline: none;
@@ -82,31 +96,49 @@ const FormTextArea = styled.textarea`
     opacity:.4;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
   }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
+    font-size: 1.1rem;
+  }
 `;
 
 const FormButtonsWrapper = styled.div`
+margin-top:1.5rem;
+  display:flex;
   animation: ${slideUpFadeIn} 0.9s ease forwards;
   animation-delay: 0.7s;
   opacity: 0;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    
+    justify-content:center;
+  }
+
 `;
 
-const Message = styled.p`
-  color: ${({ color }) => color};
+const FormResponseMessage = styled.p`
+  color: ${({ theme, color }) => color === "green" ? theme.colors.success : theme.colors.error};
   font-family: ${({ theme }) => theme.fonts.secondary};
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   padding: 10px;
   border-radius: 5px;
-  margin-top: 20px;
+  margin-top: 40px;
+  font-weight:semi-bold;
   text-align: center;
+  background: ${({ theme, color }) => color === "green" ? theme.colors.successBackground : theme.colors.errorBackground};
   transition: opacity 0.3s ease-in-out;
   display: ${({ visible }) => (visible ? 'block' : 'none')};
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
+    font-size: 1.1rem;
+  }
 `;
 
 const EmailLink = styled.a`
-  color: ${({ theme }) => theme.colors.secondaryAccent};
-  text-decoration: none;
+  color: ${({ theme, color }) => color === "accent" ? theme.colors.secondaryAccent : theme.colors.error};
+  text-decoration:${({ color }) => color === "accent" && "none"};
+  font-weight:${({ color }) => color === "accent" && "bold"};
   &:hover {
-    text-decoration: none;
+    text-decoration:${({ color }) => color === "accent" && "none"};
   }
 `;
 
@@ -163,8 +195,8 @@ const Contact = () => {
     };
 
     try {
-      const response = await fetch(endpoint, requestOptions);
-      const data = await response.json();
+      await fetch(endpoint, requestOptions);
+
 
       setLoading(false);
       showMessage('success');
@@ -177,10 +209,11 @@ const Contact = () => {
   return (
     <ViewsWrapper>
       <ContactContainer>
-        <ContactHeader>Contact.</ContactHeader>
-        <EmailMessage>
-          Reach out and let's connect! Drop me a message through the form below or simply email me at  <EmailLink href="mailto:nbrooks2389@gmail.com">nbrooks2389@gmail.com</EmailLink>.
-        </EmailMessage>
+        <PageHeader>Contact.</PageHeader>
+
+        <Message1>
+          Drop me a message through the form below or simply email me at  <EmailLink color={"accent"} href="mailto:nbrooks2389@gmail.com">nbrooks2389@gmail.com</EmailLink>.
+        </Message1>
         <ContactForm onSubmit={handleFormSubmit}>
           <FormInput
             type="text"
@@ -190,6 +223,7 @@ const Contact = () => {
             required
             autoComplete="off"
             onChange={handleInputChange}
+
           />
           <FormInput
             type="email"
@@ -210,20 +244,20 @@ const Contact = () => {
             onChange={handleInputChange}
           />
           <FormButtonsWrapper>
-            <Button type="submit" variant="secondary" style={{ fontSize: '1.2rem', width: "11rem" }}>
+            <Button type="submit" variant="secondary">
               {loading ? 'Sending...' : 'Send Message'}
             </Button>
-            <Button variant="text" onClick={handleClearForm} style={{ fontSize: '1.2rem' }}>
+            <Button variant="text" onClick={handleClearForm} >
               Clear Form
             </Button>
           </FormButtonsWrapper>
-          <Message visible={successMessageVisible} color="green">
+          <FormResponseMessage visible={successMessageVisible} color="green">
             Your message was successfully sent! Thank you for reaching out. I'll respond as soon as possible.
-          </Message>
-          <Message visible={errorMessageVisible} color="red">
+          </FormResponseMessage>
+          <FormResponseMessage visible={errorMessageVisible} color="red">
             An error occurred while sending your message. Please try again later.
-            If the problem persists, please <EmailLink href="mailto:nbrooks2389@gmail.com">contact me via email</EmailLink>.
-          </Message>
+            If the problem persists, please <EmailLink color={"error"} href="mailto:nbrooks2389@gmail.com">contact me via email</EmailLink>.
+          </FormResponseMessage>
         </ContactForm>
         <NextPageLink to="/" animationDelay="1s">Back to Home</NextPageLink>
       </ContactContainer>

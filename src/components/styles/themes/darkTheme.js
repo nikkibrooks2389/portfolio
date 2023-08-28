@@ -16,13 +16,13 @@ export const darkTheme = {
         tertiaryText: '#B0B0B0', // Darker gray
         quaternaryText: '#A0A0A0', // Even darker gray
 
-        accent: '#44A3B2',
-        accentHover: '#FF924E',
+        accent: '#44B39C',
+        accentHover: '#239A82',
         accentDark: '#FF6319',
 
-        secondaryAccent: '#44A3B2',
-        secondaryAccentHover: '#68B6C8',
-        secondaryAccentDark: '#297F8E',
+        secondaryAccent: '#2C937E',
+        secondaryAccentHover: '#',
+
 
         tertiaryAccent: '#FFC61E',
         tertiaryAccentLight: '#FFD54F',
@@ -33,26 +33,27 @@ export const darkTheme = {
         warningLight: '#FFE833',
         warningDark: '#E5BE00',
 
-        error: '#FF4500',
-        errorLight: '#FF6A33',
-        errorDark: '#D93A00',
 
-        success: '#32CD32',
-        successLight: '#5CE65C',
-        successDark: '#28A528',
+        error: '#FF4500',
+        errorBackground: '#0E1920',
+
+
+        success: '#38A454',
+        successBackground: '#0E1920',
 
         neutral: '#595959', // Gray for dark theme, used for borders, dividers, etc.
         neutralLight: '#7D7D7D', // Lighter gray
         neutralDark: '#2B2B2B',  // Darker gray
 
-        inputBorder: "#182e50",
-        inputBackgroundFocus: '#0a1320'
+        inputBorder: "#393939",
+        inputBackgroundFocus: '#0E1920'
     },
     fonts: {
-
-        primary: '"Lato", sans-serif', // Use Lato as the primary font
+        secondary: '"Roboto", sans-serif', // 
+        primary: "'Russo One', sans-serif",
+        // primary: '"Lato", sans-serif', // Use Lato as the primary font
         // secondary: '"Merriweather", serif', // Use Merriweather as the seconda
-        secondary: '"Source Serif Pro", serif', // Use Source Serif Pro as the secondary font
+        // secondary: '"Source Serif Pro", serif', // Use Source Serif Pro as the secondary font
     },
     breakpoints,
 };

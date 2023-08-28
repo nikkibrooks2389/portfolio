@@ -6,7 +6,7 @@ const StyledButton = styled.button`
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 1.3rem;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
 
@@ -61,15 +61,18 @@ const StyledButton = styled.button`
   
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 14px;
+    font-size: 1.2rem;
     padding: 8px 16px;
   }
 
-
+  @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
+    font-size: 1.1rem;
+    padding: 8px 16px;
+  }
 `;
 
 const Button = ({ variant = 'primary', children, ...props }) => {
-    return <StyledButton className={variant} {...props}>{children}</StyledButton>;
+  return <StyledButton className={variant} {...props}>{children}</StyledButton>;
 }
 
 export default Button;

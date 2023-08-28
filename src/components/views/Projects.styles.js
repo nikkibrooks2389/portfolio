@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { ViewsWrapper } from "./ViewsWrapper";
-import { slideUpFadeIn, slideInFromRightFadeIn } from "../styles/keyframes";
+import { slideUpFadeIn } from "../styles/keyframes";
 import NextPageLink from "../Links/NextPageLink.style";
+import PageHeader from "../pageHeader/PageHeader.styles";
 
 const ProjectsContainer = styled.div`
   display: flex;
@@ -15,25 +16,28 @@ const ProjectsContainer = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     width: 90%;
     text-align:center
-   
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
+    padding-top:120px;
   }
 `;
 
-const ProjectsHeader = styled.h1`
-  font-size: 3.5rem;
-  margin: 0 0 1rem 0;
-  animation: ${slideInFromRightFadeIn} 0.9s ease forwards;
-  opacity: 0;
-`;
-
-
+const StyledProjects = styled.div`
+font-size: 2.5rem;
+margin:3rem 0 0 0;
+opacity: 0;
+transform: translateY(20px); 
+animation: ${slideUpFadeIn} 0.5s forwards;
+animation-delay: 0.7s;
+`
 const Projects = () => (
-    <ViewsWrapper>
-        <ProjectsContainer>
-            <ProjectsHeader>Projects.</ProjectsHeader>
-            <NextPageLink to="/contact" animationDelay="1s">  Contact Me</NextPageLink>
-        </ProjectsContainer>
-    </ViewsWrapper>
+  <ViewsWrapper>
+    <ProjectsContainer>
+      <PageHeader>Projects.</PageHeader>
+      <StyledProjects> Coming Soon!</StyledProjects>
+      <NextPageLink to="/contact" animationDelay="1s">  Contact Me</NextPageLink>
+    </ProjectsContainer>
+  </ViewsWrapper>
 );
 
 export default Projects;

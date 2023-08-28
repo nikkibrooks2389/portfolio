@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { slideUpFadeIn } from "../styles/keyframes";
+import { slideUpFadeIn, slideInFromLeftWithBounce } from "../styles/animations/keyframes";
 import { ViewsWrapper } from "./ViewsWrapper";
 import NextPageLink from "../Links/NextPageLink.style";
 
@@ -7,6 +7,8 @@ export const HeaderContainer = styled.div`
   display :flex;
   flex-direction:column;
   justify-content:center; 
+ align-items:center; 
+ padding-top:80px
 `;
 
 const Name = styled.div`
@@ -30,19 +32,12 @@ const Name = styled.div`
   }
 `;
 
-const slideWithBounce = keyframes`
-0% { transform: translateX(-100vw); }
-60% { transform: translateX(3px); }
-75% { transform: translateX(-2px); }
-87% { transform: translateX(1px); }
-94% { transform: translateX(-1px); }
-100% { transform: translateX(0); }
-`;
+
 
 const FrontendWord = styled.div`
   font-size: 12rem;
   margin-right:5px;
-  animation: ${slideWithBounce} 0.9s forwards;
+  animation: ${slideInFromLeftWithBounce} 0.9s forwards;
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 9rem;
   }
@@ -96,24 +91,24 @@ const RightSmoothBouncingLetter = styled.span`
 `;
 
 const ShortDescription = styled.p`
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   color: ${({ theme }) => theme.colors.secondaryText};
   font-family: ${({ theme }) => theme.fonts.secondary};
   text-align: center;
   max-width: 800px; 
-  margin: 1rem 0 4rem 0;
+  margin: 2rem 0 0 0;
   opacity: 0; // Start hidden
   transform: translateY(20px); // Start slightly below
   animation: ${slideUpFadeIn} 0.5s forwards; // Apply the animation
   animation-delay: 2.4s; 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     max-width: 650px; 
     };
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
       max-width:500px;
       text-align:center;
-      font-size: 1.8rem;
+      font-size: 1.2rem;
   };
   @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
     max-width:300px;

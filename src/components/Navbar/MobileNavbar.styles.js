@@ -19,8 +19,8 @@ list-style: none;
 display: flex;
 align-items: center;
 flex-direction: column;
-top: ${props => (props.isOpen ? '60px' : '-100%')}; // Toggle between these values
-transition: top 0.8s ease; // Add a transition
+top: ${props => (props.isOpen ? '60px' : '-100%')};
+transition: top 0.5s ease; 
 
 `;
 
@@ -33,14 +33,14 @@ const NavItem = styled.li`
 const MobileNavbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
-  const location = useLocation(); // Get the current path
+  const location = useLocation();
 
   const handleMenuToggle = () => {
     setMenuOpen(!isMenuOpen);
   };
 
   const handleNavLinkClick = () => {
-    setMenuOpen(false); // Close the menu when a link is clicked
+    setMenuOpen(false);
   };
 
 

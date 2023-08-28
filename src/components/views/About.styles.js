@@ -4,13 +4,15 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ViewsWrapper } from "./ViewsWrapper";
-import { slideUpFadeIn, slideInFromRightFadeIn } from "../styles/keyframes";
+import { slideUpFadeIn } from "../styles/keyframes";
 import Resume from "../resume/Resume.style";
 import Image1 from "../../../src/assets/images/nicole-img-1.jpg";
 import Image2 from "../../../src/assets/images/nicole-img-2.jpg";
 import Image4 from "../../../src/assets/images/nicole-img-4.jpg";
 import Image6 from "../../../src/assets/images/nicole-img-6.jpg";
 import NextPageLink from "../Links/NextPageLink.style";
+import PageHeader from "../pageHeader/PageHeader.styles";
+
 
 const AboutContainer = styled.div`
   display: flex;
@@ -24,16 +26,14 @@ const AboutContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     width: 90%;
-    text-align:center
-   
+    text-align:center  
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
+    padding-top:120px;
   }
 `;
 
-const AboutMeHeader = styled.h1`
-  font-size: 3.5rem;
-  margin-bottom: 2rem;
-  animation: ${slideInFromRightFadeIn} 0.9s ease forwards;
-`;
+
 
 const AboutMeDescription = styled.p`
   padding-top: 0.5rem;
@@ -49,7 +49,11 @@ const AboutMeDescription = styled.p`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     order: 1;
     flex-direction: column;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
+ 
+    font-size: 1.1rem;
   }
 `;
 
@@ -63,6 +67,7 @@ const AnimatedContainer = styled.div`
 const SkillsSection = styled.div`
   display: flex;
   flex-direction: column;
+  min-width:225px;
   max-width: 300px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -92,7 +97,7 @@ const SkillSection = styled.div`
 const SkillAboutContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 1.5rem 0 5rem 0;
+  margin: 1.5rem 0 0 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     flex-direction: column;
@@ -106,8 +111,8 @@ const Skill = styled.span`
   line-height: 1.5;
   font-size: 1.3rem;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 1.2rem;
+  @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
+    font-size: 1.1rem;
   }
 `;
 
@@ -123,12 +128,13 @@ const SkillHeader = styled.h3`
 
 const ContactMe = styled(Link)`
   text-decoration: none;
+  font-weight:bold;
   color: ${({ theme }) => theme.colors.secondaryAccent};
 `;
 
 const ResumeSection = styled.div`
   margin: 2rem 0;
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     display: flex;
     justify-content: center;
   }
@@ -142,7 +148,7 @@ const About = () => {
     <ViewsWrapper>
       <AboutContainer>
 
-        <AboutMeHeader>About Me.</AboutMeHeader>
+        <PageHeader>About Me.</PageHeader>
         <AnimatedContainer>
           <ResumeSection>
             <Resume />
@@ -176,7 +182,7 @@ const About = () => {
 
               I'm rapid learner with a strong work ethic, I flourish in collaborative environments, always eager to both share knowledge and learn from peers. In my free time, you'll  find me hanging out with my dogs, skateboarding around San Diego, or simply soaking up the sun at the beach.<br /><br />
 
-              I'm actively exploring new frontend opportunities, eager to bring my expertise and passion to dynamic teams. If you'd like to connect or discuss potential collaborations, please feel free to reach out to me through my <ContactMe to={"/contact"}>Contact Page</ContactMe>
+              I'm actively exploring new frontend opportunities, eager to bring my expertise and passion to dynamic teams. If you'd like to connect or discuss potential collaborations, please feel free to reach out to me through my <ContactMe to={"/contact"}>Contact Page</ContactMe>.
             </AboutMeDescription>
           </SkillAboutContainer>
         </AnimatedContainer>
