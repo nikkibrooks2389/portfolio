@@ -8,7 +8,8 @@ export const HeaderContainer = styled.div`
   flex-direction:column;
   justify-content:center; 
  align-items:center; 
- padding-top:80px
+ margin-top:80px
+ 
 `;
 
 const Name = styled.div`
@@ -16,6 +17,7 @@ const Name = styled.div`
   font-weight:300;
   color:${props => props.theme.colors.accent};
   opacity: 0; 
+  
   transform: translateY(20px); 
   animation: ${slideUpFadeIn} 0.5s forwards; 
   animation-delay: 2.2s;
@@ -136,7 +138,7 @@ const Home = () => (
         </DeveloperWordContainer>
       </RoleContainer>
       <ShortDescription>
-        Passionate frontend developer with a knack for creating intuitive and visually appealing web experiences. Enthusiastic about blending creativity with technology to craft seamless user interactions.
+        Passionate frontend developer with a knack for creating intuitive and visually appealing web experiences.
       </ShortDescription>
       <NextPageLink to="/about" animationDelay="2.5s"> More About Me </NextPageLink>
 

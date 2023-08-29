@@ -9,13 +9,14 @@ import { GlobalStyles } from "./components/styles/global/Global";
 import { ThemeProvider as StyledProvider } from 'styled-components';
 import { ThemeProvider, ThemeContext } from './components/context/ThemeContext';
 import React, { useContext } from 'react';
-
+import ScrollToTop from './components/scrollToTop/ScrollToTop.style';
 const ThemeWrapper = () => {
   const { theme } = useContext(ThemeContext);
   return (
     <StyledProvider theme={theme}>
       <GlobalStyles />
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />

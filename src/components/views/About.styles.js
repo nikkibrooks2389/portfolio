@@ -12,7 +12,7 @@ import Image4 from "../../../src/assets/images/nicole-img-4.jpg";
 import Image6 from "../../../src/assets/images/nicole-img-6.jpg";
 import NextPageLink from "../Links/NextPageLink.style";
 import PageHeader from "../pageHeader/PageHeader.styles";
-
+import ImageCarousel from "../ImageCarousel/ImageCarousel.style";
 
 const AboutContainer = styled.div`
   display: flex;
@@ -36,26 +36,33 @@ const AboutContainer = styled.div`
 
 
 const AboutMeDescription = styled.p`
-  padding-top: 0.5rem;
+  padding:0 0 4rem 2.5rem ;
   color: ${({ theme }) => theme.colors.secondaryText};
   font-size: 1.4rem;
-  padding-left: 1rem;
   font-family: ${({ theme }) => theme.fonts.secondary};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 1.3rem;
+    margin-top:2rem;
+    padding:0px
   }
   
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    order: 1;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {  
     flex-direction: column;
     font-size: 1.3rem;
   }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
- 
     font-size: 1.1rem;
   }
 `;
+
+const HorizontalLine = styled.hr`
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 1rem 3rem;
+`;
+
 
 const AnimatedContainer = styled.div`
   animation: ${slideUpFadeIn} 0.9s forwards;
@@ -65,24 +72,24 @@ const AnimatedContainer = styled.div`
 `;
 
 const SkillsSection = styled.div`
+margin-top:2rem;
   display: flex;
-  flex-direction: column;
-  min-width:225px;
-  max-width: 300px;
+  flex-wrap: wrap;
+justify-content:space-evenly;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    order: 2;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) { 
     max-width: unset;
     flex-direction: column;
-    margin-top: 3rem;
+    margin-top: 2rem;
   }
 `;
 
 const SkillSection = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
-
+  margin: 2rem 0;
+  max-width:450px;
+ padding:0rem 2rem;
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     align-items: center;
     max-width: 100%;
@@ -96,7 +103,7 @@ const SkillSection = styled.div`
 
 const SkillAboutContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 1.5rem 0 0 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -110,17 +117,19 @@ const Skill = styled.span`
   padding: 0.2rem;
   line-height: 1.5;
   font-size: 1.3rem;
-
+text-align:center;
   @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
     font-size: 1.1rem;
   }
 `;
 
 const SkillHeader = styled.h3`
-  font-size: 1.7rem;
-  margin-bottom:.5rem;
-  font-weight:300;
+  font-size: 1.5rem;
+  margin-bottom:1rem;
+  font-weight:600;
+  color: ${({ theme }) => theme.colors.accent};
   text-decoration:underline;
+  text-align:center;
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 1.4rem;
   }
@@ -130,13 +139,35 @@ const ContactMe = styled(Link)`
   text-decoration: none;
   font-weight:bold;
   color: ${({ theme }) => theme.colors.secondaryAccent};
+
 `;
 
 const ResumeSection = styled.div`
-  margin: 2rem 0;
+  margin: 2rem 0 4rem 0;
+  display: flex;
+  justify-content: center;
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    display: flex;
-    justify-content: center;
+  }
+`;
+
+const ImageCarouselWrapper = styled.div`
+ 
+ padding: 1rem;
+ height:fit-content;
+border:10px solid ${({ theme }) => theme.colors.secondaryAccent}};
+
+`;
+
+
+const ImageAndDescriptionWrapper = styled.div`
+display:flex;
+flex-direction:row;
+margin-bottom:2.5rem;
+@media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  flex-direction:column;
+  align-items:center
+}
+
   }
 `;
 
@@ -154,6 +185,19 @@ const About = () => {
             <Resume />
           </ResumeSection>
           <SkillAboutContainer>
+            <ImageAndDescriptionWrapper>
+              <ImageCarouselWrapper>
+                <ImageCarousel images={images} interval={10000} />
+              </ImageCarouselWrapper>
+              <AboutMeDescription>
+                Hello, my name is Nicole Brooks, originally from Massachusetts and now thriving in sunny San Diego, California. I'm a frontend developer with a design flair and an innovative spirit.<br /><br />
+
+                I'm rapid learner with a strong work ethic, I flourish in collaborative environments, always eager to both share knowledge and learn from peers. In my free time, you'll  find me hanging out with my dogs, skateboarding around San Diego, or soaking up the sun at the beach.<br /><br />
+
+                I'm actively exploring new frontend opportunities, eager to bring my expertise and passion to dynamic teams. If you'd like to connect or discuss potential collaborations, please feel free to reach out to me through my <ContactMe to={"/contact"}>Contact Page</ContactMe>.
+              </AboutMeDescription>
+            </ImageAndDescriptionWrapper>
+            <HorizontalLine />
             <SkillsSection>
               <SkillSection>
                 <SkillHeader>Frontend Tools</SkillHeader>
@@ -174,16 +218,6 @@ const About = () => {
                 <Skill>Git, GitHub, Bitbucket, Docker, Aws</Skill>
               </SkillSection>
             </SkillsSection>
-            <AboutMeDescription>
-              Hello, my name is Nicole Brooks, originally from Massachusetts and now thriving in sunny San Diego, California. I'm a frontend developer with a design flair and an innovative spirit.<br /><br />
-
-              My journey into tech world started at Learn Academy's coding bootcamp, a turning point that ignited my passion for frontend magic.
-              Following that, I embarked on an exciting internship at Victorise, where I refined my skills even further. This rewarding path led me to my most recent role as a frontend developer at iCompaas. Here, I've been crafting engaging features and evolving alongside a dynamic team.<br /><br />
-
-              I'm rapid learner with a strong work ethic, I flourish in collaborative environments, always eager to both share knowledge and learn from peers. In my free time, you'll  find me hanging out with my dogs, skateboarding around San Diego, or simply soaking up the sun at the beach.<br /><br />
-
-              I'm actively exploring new frontend opportunities, eager to bring my expertise and passion to dynamic teams. If you'd like to connect or discuss potential collaborations, please feel free to reach out to me through my <ContactMe to={"/contact"}>Contact Page</ContactMe>.
-            </AboutMeDescription>
           </SkillAboutContainer>
         </AnimatedContainer>
 

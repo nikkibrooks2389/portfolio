@@ -7,7 +7,7 @@ import { Dropdown, DropdownItem } from '../dropdown/Dropdown.style';
 const Resume = () => {
     return (
         <div >
-            <Dropdown variant="secondary" triggerText="Check Out My Resume">
+            <Dropdown variant="outline" triggerText="Check Out My Resume">
                 <DropdownItem href="/resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</DropdownItem>
                 <DropdownItem href="/resume.pdf" download>Download Resume</DropdownItem>
             </Dropdown>

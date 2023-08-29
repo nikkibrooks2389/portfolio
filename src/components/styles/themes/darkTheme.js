@@ -49,11 +49,13 @@ export const darkTheme = {
         inputBackgroundFocus: '#0E1920'
     },
     fonts: {
-        secondary: '"Roboto", sans-serif', // 
-        primary: "'Russo One', sans-serif",
-        // primary: '"Lato", sans-serif', // Use Lato as the primary font
+        // secondary: '"Roboto", sans-serif', // 
+        // primary: "'Russo One', sans-serif",
+        // primary: '"Playfair Display", serif', // Use Playfair Display as the primary font
+        // secondary: '"Roboto", sans-serif', // 
+        primary: '"Raleway", sans-serif', /* Primary Font */
         // secondary: '"Merriweather", serif', // Use Merriweather as the seconda
-        // secondary: '"Source Serif Pro", serif', // Use Source Serif Pro as the secondary font
+        secondary: '"Source Serif Pro", serif', // Use Source Serif Pro as the secondary font
     },
     breakpoints,
 };

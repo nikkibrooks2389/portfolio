@@ -23,7 +23,8 @@ const Logo = styled.div`
 `;
 
 const BlurredNavbarContainer = styled(NavbarContainer)`
-background: ${({ theme }) => theme.colors.primaryBackground};
+backdrop-filter: blur(10px); 
+
 `;
 
 

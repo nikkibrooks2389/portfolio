@@ -3,10 +3,7 @@ import { gradientAnimation } from '../styles/keyframes';
 
 
 const backgroundFilter = (theme) => {
-  if (theme.mode === "light") {
-    return `linear-gradient(to right, transparent 1px, transparent 10px, rgba(150, 150, 150, 0.1) 10px, rgba(150, 150, 150, 0.1) 11px, transparent 11px, transparent 20px),
-    linear-gradient(to bottom, transparent 1px, transparent 10px, rgba(150, 150, 150, 0.1) 10px, rgba(150, 150, 150, 0.1) 11px, transparent 11px, transparent 20px)`;
-  } else if (theme.mode === "dark") {
+  if (theme.mode === "dark") {
     return `linear-gradient(to right, transparent 1px, transparent 10px, rgba(100, 100, 100, 0.1) 10px, rgba(100, 100, 100, 0.1) 11px, transparent 11px, transparent 20px),
     linear-gradient(to bottom, transparent 1px, transparent 10px, rgba(100, 100, 100, 0.1) 10px, rgba(100, 100, 100, 0.1) 11px, transparent 11px, transparent 20px)`;
   } else {
@@ -22,7 +19,7 @@ export const ViewsWrapper = styled.div`
   padding: 0px 20px 20px 20px;
   background-image: ${({ theme }) => backgroundFilter(theme)};
    
-background-size: ${({ theme }) => theme.mode !== "unicorn" && "80px 80px"};
+// background-size: ${({ theme }) => theme.mode !== "unicorn" || theme.mode !== "light" && "80px 80px"};
    background-color: ${({ theme }) => theme.colors.primaryBackground};
   color: ${props => props.theme.colors.primaryText};
   animation: ${gradientAnimation} 15s infinite,

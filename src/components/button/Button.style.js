@@ -49,13 +49,13 @@ const StyledButton = styled.button`
 
   &.outline {
     background-color: transparent;
-    color: ${({ theme }) => theme.colors.accent};
-    border: 2px solid ${({ theme }) => theme.colors.accent};
-
-    &:hover {
-      background-color: ${({ theme }) => theme.colors.accent};
-      color: white;
-    }
+    color: ${({ theme }) => theme.mode === "light" ? theme.colors.secondaryAccent : theme.colors.accent};
+    border: 3px solid ${({ theme }) => theme.mode === "light" ? theme.colors.secondaryAccent : theme.colors.accent};
+ 
+    // &:hover {
+    //   background-color: ${({ theme }) => theme.colors.accent};
+    //   color: white;
+    // }
   }
 
   

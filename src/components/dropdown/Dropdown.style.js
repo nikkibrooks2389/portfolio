@@ -18,6 +18,7 @@ const DropdownContent = styled.div`
   overflow: hidden; 
   z-index: 1006;
   top: 110%;
+  width:100%;
   left: 0;
   transition: opacity 0.3s;
 `;
@@ -26,6 +27,7 @@ const DropdownItem = styled.a`
   color: black;
   padding: 10px 20px;
   text-decoration: none;
+  font-size:1.2rem;
   display: block;
   transition: background-color 0.3s, color 0.3s;
 
