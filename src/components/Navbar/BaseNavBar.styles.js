@@ -23,7 +23,9 @@ const Logo = styled.div`
 `;
 
 const BlurredNavbarContainer = styled(NavbarContainer)`
+background: ${({ theme }) => theme.colors.primaryBackground};
 backdrop-filter: blur(10px); 
+  box-shadow: 0 .5px 1px rgba(0, 0, 0, 0.1); /* Adjust the shadow properties */
 
 `;
 

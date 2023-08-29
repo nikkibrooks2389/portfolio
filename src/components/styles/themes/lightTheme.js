@@ -4,7 +4,7 @@ import { breakpoints } from './sharedStyles';
 export const lightTheme = {
     mode: "light",
     colors: {
-        primaryBackground: 'linear-gradient(135deg, hsla(0, 0%, 100%, 1) 0%, hsla(169, 57%, 91%, 1) 52%, hsla(32, 100%, 90%, 1) 100%);', // Light Green
+        primaryBackground: '#EBEBEB', // Light Green
         secondaryBackground: '#a8c3a8', // Lighter Green
         tertiaryBackground: '#8fb18f', // Slightly Darker Green
         quaternaryBackground: '#6c8e6c', // Dark Green
