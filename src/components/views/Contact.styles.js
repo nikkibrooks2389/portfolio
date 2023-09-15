@@ -82,7 +82,7 @@ const FormTextArea = styled.textarea`
   padding: 1rem;
   margin: 0.8rem 0;
   font-family: ${({ theme }) => theme.fonts.secondary};
-  border: 0.1px solid ${({ theme }) => theme.colors.inputBorder};
+  border: 1px solid ${({ theme }) => theme.colors.inputBorder};
   background:${({ theme, value }) => theme.mode === "unicorn"
     ? value ? theme.colors.inputBackgroundFocus : "transparent" : value ? theme.colors.inputBackgroundFocus : theme.colors.primaryBackground};
   border-radius: 5px;

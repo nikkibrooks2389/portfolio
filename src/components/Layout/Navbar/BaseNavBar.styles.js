@@ -24,22 +24,22 @@ const Logo = styled.div`
   font-weight: bold;
   cursor: pointer;
 `;
-
 const BaseNavbar = ({ children, location, setIsMenuOpen, isMenuOpen = false }) => {
     const [isScrolled, setIsScrolled] = useState(false);
 
-
-    // The handleScroll function is memoized using useCallback to ensure that its reference doesn't change on every render.
-    const handleScroll = useCallback(() => {
-        setIsScrolled(window.scrollY > 0);
-    }, []);
-
     useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 0);
+        };
+
+        // Set the initial state based on current scroll position
+        setIsScrolled(window.scrollY > 0);
+
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [handleScroll]);
+    }, []);
 
     return (
         <NavbarContainer isMenuOpen={isMenuOpen} isScrolled={isScrolled}>
