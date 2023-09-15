@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ViewsWrapper } from "./ViewsWrapper";
 import { slideUpFadeIn } from "../styles/keyframes";
-import NextPageLink from "../Links/NextPageLink.style";
+import NextPageLink from "../UI/Links/NextPageLink.style";
 import PageHeader from "../pageHeader/PageHeader.styles";
 
 const ProjectsContainer = styled.div`

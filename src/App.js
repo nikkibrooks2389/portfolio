@@ -1,17 +1,23 @@
+// Library Imports
+import React, { useContext } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ThemeProvider as StyledProvider } from 'styled-components';
+
+// Component Imports
 import Home from './components/views/Home.styles';
 import About from './components/views/About.styles';
 import Projects from './components/views/Projects.styles';
 import Contact from './components/views/Contact.styles';
 import Layout from './components/Layout';
-// import CustomCursor from './components/customCursor/CustomeCursor.style';
-import { GlobalStyles } from "./components/styles/global/Global";
-import { ThemeProvider as StyledProvider } from 'styled-components';
-import { ThemeProvider, ThemeContext } from './components/context/ThemeContext';
-import React, { useContext } from 'react';
 import ScrollToTop from './components/scrollToTop/ScrollToTop.style';
+
+// Style & Theme Imports
+import { GlobalStyles } from "./components/styles/global/Global";
+import { AppThemeProvider, AppThemeContext } from './components/context/AppThemeContext';
+
 const ThemeWrapper = () => {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useContext(AppThemeContext);
+
   return (
     <StyledProvider theme={theme}>
       <GlobalStyles />
@@ -32,10 +38,9 @@ const ThemeWrapper = () => {
 
 const App = () => {
   return (
-    <ThemeProvider>
+    <AppThemeProvider>
       <ThemeWrapper />
-      {/* <CustomCursor /> */}
-    </ThemeProvider>
+    </AppThemeProvider>
   );
 }
 

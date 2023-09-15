@@ -1,26 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
+
 const ImageCarouselContainer = styled.div`
   display: flex;
   overflow: hidden;
-  `;
-
-const Image = styled.img`
-  max-width:400px;
-  height: auto;
-  transition: transform 0.5s ease-in-out;
-  
-  opacity:0.9;
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-      width:325px;
-  };
-  @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
-    width:230px;
-}
 `;
 
-const ImageCarousel = ({ images, interval }) => {
+const Image = styled.img`
+  max-width: 400px;
+  height: auto;
+  transition: transform 0.5s ease-in-out;
+  opacity: 0.9;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 325px;
+  }
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
+    width: 230px;
+  }
+`;
+
+
+const ImageCarousel = ({ images = [], interval = 3000 }) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
@@ -29,6 +32,7 @@ const ImageCarousel = ({ images, interval }) => {
             setCurrentImageIndex(nextImageIndex);
         }, interval);
 
+        // Cleanup: clear the interval when the component is unmounted
         return () => {
             clearInterval(intervalId);
         };
@@ -44,5 +48,4 @@ const ImageCarousel = ({ images, interval }) => {
     );
 };
 
-
-export default ImageCarousel
+export default ImageCarousel;

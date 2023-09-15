@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { ViewsWrapper } from './ViewsWrapper';
 import { slideUpFadeIn, } from '../styles/keyframes';
-import NextPageLink from '../Links/NextPageLink.style';
-import Button from '../button/Button.style';
+import NextPageLink from "../UI/Links/NextPageLink.style";
+import Button from '../UI/button/Button.style';
 import PageHeader from '../pageHeader/PageHeader.styles';
 
 const ContactContainer = styled.div`
@@ -32,15 +32,16 @@ color: ${({ theme }) => theme.colors.secondaryText};
 font-family: ${({ theme }) => theme.fonts.secondary};
 font-size: 1.3rem;
 animation: ${slideUpFadeIn} 0.9s forwards;
-  animation-delay: 0.7s;
-  opacity: 0;
+animation-delay: 0.7s;
+opacity: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
    text-align:center
-  }
-  @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
-    font-size: 1.2rem;
-  }
+}
+
+@media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
+  font-size: 1.2rem;
+}
 `;
 
 const ContactForm = styled.form`
@@ -134,8 +135,8 @@ const FormResponseMessage = styled.p`
 `;
 
 const EmailLink = styled.a`
-  color: ${({ theme, color }) => color === "accent" ? theme.colors.secondaryAccent : theme.colors.error};
-  text-decoration:${({ color }) => color === "accent" && "none"};
+  color: ${({ theme, color }) => color === "accent" ? theme.colors.secondaryText : theme.colors.error};
+  // text-decoration:${({ color }) => color === "accent" && "none"};
   font-weight:${({ color }) => color === "accent" && "bold"};
   &:hover {
     text-decoration:${({ color }) => color === "accent" && "none"};

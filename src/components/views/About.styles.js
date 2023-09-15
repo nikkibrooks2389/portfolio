@@ -10,7 +10,7 @@ import Image1 from "../../../src/assets/images/nicole-img-1.jpg";
 import Image2 from "../../../src/assets/images/nicole-img-2.jpg";
 import Image4 from "../../../src/assets/images/nicole-img-4.jpg";
 import Image6 from "../../../src/assets/images/nicole-img-6.jpg";
-import NextPageLink from "../Links/NextPageLink.style";
+import NextPageLink from "../UI/Links/NextPageLink.style";
 import PageHeader from "../pageHeader/PageHeader.styles";
 import ImageCarousel from "../ImageCarousel/ImageCarousel.style";
 
@@ -136,9 +136,8 @@ const SkillHeader = styled.h3`
 `;
 
 const ContactMe = styled(Link)`
-  text-decoration: none;
-  font-weight:bold;
-  color: ${({ theme }) => theme.colors.secondaryAccent};
+  font-weight:600;
+  color: ${({ theme }) => theme.colors.secondaryText};
 
 `;
 

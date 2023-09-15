@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { slideUpFadeIn, slideInFromLeftWithBounce } from "../styles/animations/keyframes";
 import { ViewsWrapper } from "./ViewsWrapper";
-import NextPageLink from "../Links/NextPageLink.style";
+import NextPageLink from "../UI/Links/NextPageLink.style";
 
 export const HeaderContainer = styled.div`
   display :flex;

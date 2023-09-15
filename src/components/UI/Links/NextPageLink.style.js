@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { slideUpFadeIn } from "../styles/keyframes";
+import { slideUpFadeIn } from "../../styles/keyframes";
 
 const bounceArrow = keyframes`
   0%, 100% {
@@ -23,7 +23,7 @@ const AnimatedArrow = styled(FontAwesomeIcon)`
 const StyledNextPageLink = styled(Link)`
   font-family:${({ theme }) => theme.fonts.secondary};
   text-decoration:none;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   cursor:pointer;
   font-weight:400;
   padding-bottom:2rem;
@@ -34,15 +34,15 @@ const StyledNextPageLink = styled(Link)`
   animation: ${slideUpFadeIn} 0.5s forwards;
   animation-delay:  ${props => props?.animationDelay};
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-align:center
   }
 

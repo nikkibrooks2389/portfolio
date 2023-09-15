@@ -3,59 +3,47 @@ import { breakpoints } from './sharedStyles';
 export const darkTheme = {
     mode: "dark",
     colors: {
-        // primaryBackground: "radial-gradient(circle at center, #223f6b, #000000)",
-        primaryBackground: "#11212a",
-        //  "radial-gradient(circle at center, #1b355b, #000000)",
+        primaryBackground: "#11212a", // Very Dark Blue
+        secondaryBackground: '#2B2B2B', // Dark Gray
+        tertiaryBackground: '#595959', // Medium Gray
+        quaternaryBackground: '#7D7D7D', // Light Gray
 
-        secondaryBackground: '#595959', // Gray
-        tertiaryBackground: '#7D7D7D', // Light gray
-        quaternaryBackground: '#A5A5A5', // Even lighter gray
+        primaryText: '#F0F0F0', // Bright Gray
+        secondaryText: '#D3D3D3', // Light Gray
+        tertiaryText: '#B0B0B0', // Medium Gray
+        quaternaryText: '#A0A0A0', // Dark Gray
 
-        primaryText: '#F0F0F0', // Light gray
-        secondaryText: '#D3D3D3', // Medium gray
-        tertiaryText: '#B0B0B0', // Darker gray
-        quaternaryText: '#A0A0A0', // Even darker gray
+        accent: '#44B39C', // Turquoise Green
+        accentHover: '#239A82', // Darker Turquoise Green
+        accentDark: '#106f5c', // Darkest Turquoise Green
 
-        accent: '#44B39C',
-        accentHover: '#239A82',
-        accentDark: '#FF6319',
+        secondaryAccent: '#2C937E', // Forest Green
+        secondaryAccentHover: '#1E6B5B', // Dark Forest Green
 
-        secondaryAccent: '#2C937E',
-        secondaryAccentHover: '#',
+        tertiaryAccent: '#FFC61E', // Golden Yellow
+        tertiaryAccentLight: '#FFD54F', // Light Golden Yellow
+        tertiaryAccentDark: '#E5B500', // Dark Golden Yellow
 
+        warning: '#FFD700', // Bright Gold for warnings
+        warningLight: '#FFE833', // Lighter Gold
+        warningDark: '#E5BE00', // Darker Gold
 
-        tertiaryAccent: '#FFC61E',
-        tertiaryAccentLight: '#FFD54F',
-        tertiaryAccentDark: '#E5B500',
+        error: '#FF4500', // Bright Red-Orange for errors
+        errorBackground: '#0E1920', // Dark Blueish Gray
 
+        success: '#38A454', // Green
+        successBackground: '#0E1920', // Dark Blueish Gray
 
-        warning: '#FFD700',
-        warningLight: '#FFE833',
-        warningDark: '#E5BE00',
+        neutral: '#595959', // Neutral Gray
+        neutralLight: '#7D7D7D', // Lighter Gray
+        neutralDark: '#2B2B2B',  // Darker Gray
 
-
-        error: '#FF4500',
-        errorBackground: '#0E1920',
-
-
-        success: '#38A454',
-        successBackground: '#0E1920',
-
-        neutral: '#595959', // Gray for dark theme, used for borders, dividers, etc.
-        neutralLight: '#7D7D7D', // Lighter gray
-        neutralDark: '#2B2B2B',  // Darker gray
-
-        inputBorder: "#393939",
-        inputBackgroundFocus: '#0E1920'
+        inputBorder: "#393939", // Border Gray
+        inputBackgroundFocus: '#0E1920' // Dark Blueish Gray
     },
     fonts: {
-        // secondary: '"Roboto", sans-serif', // 
-        // primary: "'Russo One', sans-serif",
-        // primary: '"Playfair Display", serif', // Use Playfair Display as the primary font
-        // secondary: '"Roboto", sans-serif', // 
         primary: '"Raleway", sans-serif', /* Primary Font */
-        // secondary: '"Merriweather", serif', // Use Merriweather as the seconda
-        secondary: '"Source Serif Pro", serif', // Use Source Serif Pro as the secondary font
+        secondary: "'Poppins', sans-serif",
     },
     breakpoints,
 };

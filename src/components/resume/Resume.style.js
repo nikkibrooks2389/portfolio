@@ -1,7 +1,6 @@
 
 import React from 'react';
-import styled from 'styled-components';
-import { Dropdown, DropdownItem } from '../dropdown/Dropdown.style';
+import { Dropdown, DropdownItem } from '../UI/dropdown/Dropdown.style';
 
 
 const Resume = () => {

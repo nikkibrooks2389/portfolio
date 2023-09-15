@@ -5,14 +5,14 @@ export const unicornTheme = {
     mode: "unicorn",
     colors: {
         primaryBackground: 'linear-gradient(135deg, #FFB5B8, #DCE2EB, #E4DFD7, #E2D0D8, #D9E7D9, #DFD1DA)',
-        secondaryBackground: '#D3D3D3', // Medium gray
-        tertiaryBackground: '#B0B0B0', // Darker gray
-        quaternaryBackground: '#A0A0A0', // Even darker gray
+        secondaryBackground: '#FFC2D6', // Soft Pink
+        tertiaryBackground: '#FFEAF0', // Very Light Pink
+        quaternaryBackground: '#FFDCE9', // Even Lighter Pink
 
         primaryText: '#2B2B2B', // Dark gray
-        secondaryText: '#595959', // Gray
-        tertiaryText: '#7D7D7D', // Light gray
-        quaternaryText: '#A5A5A5', // Even lighter gray
+        secondaryText: '#7046A1', // Unicorn Purple
+        tertiaryText: '#5CA5CD', // Sky Blue
+        quaternaryText: '#FF6A88', // Light Pink
 
         accent: '#FF99B3', // Soft Pink
         accentLight: '#FFC2D6', // Lighter Pink
@@ -20,7 +20,6 @@ export const unicornTheme = {
         accentLightest: '#FFEAF0', // Very Light Pink
         accentDark: '#FF6A88', // Light Pink
         accentHover: '#FFEAF0',
-
 
         secondaryAccent: '#87CEEB', // Sky Blue
         secondaryAccentLight: '#B0E2FF', // Light Sky Blue
@@ -31,30 +30,25 @@ export const unicornTheme = {
         tertiaryAccentLight: '#B18BE9', // Light Unicorn Purple
         tertiaryAccentDark: '#7046A1', // Dark Unicorn Purple
 
+        warning: '#FFC107', // Amber for warning messages or icons (slightly softer than gold)
+        warningLight: '#FFCA28', // Lighter Amber
+        warningDark: '#FFA000', // Darker Amber
 
-        warning: '#FFD700', // Gold for warning messages or icons
-        warningLight: '#FFE833', // Lighter gold
-        warningDark: '#E5BE00', // Darker gold
-
-        error: '#FF4500', // OrangeRed for error messages or icons
+        error: '#FF4081', // Hot Pink for error messages or icons (softer than red-orange)
         errorBackground: `linear-gradient(135deg, #F3E7E9, #EAEFF3, #F4F1EA, #F1E1E2, #E8F3E8, #F0E6ED);`,
 
-        success: '#0CDFB8', // mint green
-        successBackground: '#E1F8F4', // light mint green
+        success: '#0CDFB8', // Mint green
+        successBackground: '#E1F8F4', // Light mint green
 
-        neutral: '#C0C0C0', // Neutral gray, can be used for borders, dividers, etc.
-        neutralLight: '#D4D4D4', // Lighter neutral gray
-        neutralDark: '#ACACAC',  // Darker neutral gray
+        neutral: '#E2D0D8', // Neutral Pink, can be used for borders, dividers, etc.
+        neutralLight: '#E8F3E8', // Lighter Neutral Green
+        neutralDark: '#D9E7D9',  // Darker Neutral Green
 
-        inputBorder: '#FCFCFB',
-        inputBackgroundFocus: `linear-gradient(135deg, #F3E7E9, #EAEFF3, #F4F1EA, #F1E1E2, #E8F3E8, #F0E6ED);
-`
+        inputBorder: '#FCFCFB', // Border Beige
+        inputBackgroundFocus: `linear-gradient(135deg, #F3E7E9, #EAEFF3, #F4F1EA, #F1E1E2, #E8F3E8, #F0E6ED);`
     },
     fonts: {
-
-
         primary: "'Lobster', cursive",
-        // secondary: "'Open Sans', sans-serif",
         secondary: "'Poppins', sans-serif",
     },
     breakpoints,
