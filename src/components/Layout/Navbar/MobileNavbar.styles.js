@@ -9,7 +9,7 @@ import NavLink from './NavLink.style';
 
 const NavList = styled.ul`
   background: ${({ theme }) => theme.colors.primaryBackground};
-  padding-top: 4rem;
+  padding-top: 7rem;
   position: fixed;
   width: 100%;
   height: 100vh;

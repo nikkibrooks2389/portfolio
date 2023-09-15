@@ -10,7 +10,8 @@ const StyledPageHeader = styled.h1`
   margin-bottom: 2rem;
   animation: ${slideInFromLeftFadeIn} 0.8s ease forwards;
   @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
-    font-size: 4rem;
+    font-size: 3rem;
+    margin-bottom: 1rem;
   }
 `;
 

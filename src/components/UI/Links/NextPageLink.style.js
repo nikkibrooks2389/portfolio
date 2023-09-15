@@ -43,7 +43,8 @@ const StyledNextPageLink = styled(Link)`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
   font-size: 1rem;
-  text-align:center
+  text-align:center;
+  margin-top:2.5rem;
   }
 
 `;
