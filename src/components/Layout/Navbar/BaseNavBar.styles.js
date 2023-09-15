@@ -10,7 +10,7 @@ const NavbarContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
   background: ${({ theme, isMenuOpen, isScrolled }) =>
-        isMenuOpen ? theme.colors.primaryBackground
+        isMenuOpen ? "transparent"
             : isScrolled ? theme.colors.primaryBackground : "none"};
   box-shadow: ${({ isScrolled }) => isScrolled ? "0 .5px 1px rgba(0, 0, 0, 0.1)" : "none"};
   padding: 2rem;
