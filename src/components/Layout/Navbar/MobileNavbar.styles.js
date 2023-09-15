@@ -18,7 +18,7 @@ const NavList = styled.ul`
   display: flex;
   align-items: center;
   flex-direction: column;
-  top: ${props => (props.isOpen ? '80px' : '-100%')};
+  top: ${props => (props.isOpen ? '0' : '-100%')};
   transition: top 0.5s ease; 
 `;
 

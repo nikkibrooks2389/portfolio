@@ -9,10 +9,9 @@ const NavbarContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme, isMenuOpen, isScrolled }) =>
+  background: ${({ theme, isMenuOpen, isScrolled }) =>
         isMenuOpen ? theme.colors.primaryBackground
-            : isScrolled ? `${theme.colors.primaryBackground}CC` : "none"};
-  backdrop-filter: ${({ isScrolled }) => isScrolled ? "blur(10px)" : "none"};
+            : isScrolled ? theme.colors.primaryBackground : "none"};
   box-shadow: ${({ isScrolled }) => isScrolled ? "0 .5px 1px rgba(0, 0, 0, 0.1)" : "none"};
   padding: 2rem;
   z-index: 1005;
