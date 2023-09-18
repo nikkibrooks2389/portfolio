@@ -104,7 +104,7 @@ const FormTextArea = styled.textarea`
 `;
 
 const FormButtonsWrapper = styled.div`
-margin-top:1.5rem;
+margin:1.5rem 0;
   display:flex;
   animation: ${slideUpFadeIn} 0.9s ease forwards;
   animation-delay: 0.7s;
@@ -136,7 +136,6 @@ const FormResponseMessage = styled.p`
 
 const EmailLink = styled.a`
   color: ${({ theme, color }) => color === "accent" ? theme.colors.secondaryText : theme.colors.error};
-  // text-decoration:${({ color }) => color === "accent" && "none"};
   font-weight:${({ color }) => color === "accent" && "bold"};
   &:hover {
     text-decoration:${({ color }) => color === "accent" && "none"};
@@ -210,7 +209,7 @@ const Contact = () => {
   return (
     <ViewsWrapper>
       <ContactContainer>
-        <PageHeader>Contact.</PageHeader>
+        <PageHeader>Contact</PageHeader>
 
         <Message1>
           Drop me a message through the form below or simply email me at  <EmailLink color={"accent"} href="mailto:nbrooks2389@gmail.com">nbrooks2389@gmail.com</EmailLink>.

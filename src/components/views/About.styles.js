@@ -72,7 +72,7 @@ const AnimatedContainer = styled.div`
 `;
 
 const SkillsSection = styled.div`
-margin-top:2rem;
+margin:2rem 0;
   display: flex;
   flex-wrap: wrap;
 justify-content:space-evenly;
@@ -178,7 +178,7 @@ const About = () => {
     <ViewsWrapper>
       <AboutContainer>
 
-        <PageHeader>About Me.</PageHeader>
+        <PageHeader>About Me</PageHeader>
         <AnimatedContainer>
           <ResumeSection>
             <Resume />

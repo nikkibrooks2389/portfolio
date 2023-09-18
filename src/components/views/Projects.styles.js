@@ -24,7 +24,7 @@ const ProjectsContainer = styled.div`
 
 const StyledProjects = styled.div`
 font-size: 2.5rem;
-margin:3rem 0 0 0;
+margin:2rem 0 3rem 0;
 opacity: 0;
 transform: translateY(20px); 
 animation: ${slideUpFadeIn} 0.5s forwards;
@@ -33,7 +33,7 @@ animation-delay: 0.7s;
 const Projects = () => (
   <ViewsWrapper>
     <ProjectsContainer>
-      <PageHeader>Projects.</PageHeader>
+      <PageHeader>Projects</PageHeader>
       <StyledProjects> Coming Soon!</StyledProjects>
       <NextPageLink to="/contact" animationDelay="1s">  Contact Me</NextPageLink>
     </ProjectsContainer>

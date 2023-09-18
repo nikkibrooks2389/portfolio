@@ -27,7 +27,7 @@ const StyledNextPageLink = styled(Link)`
   cursor:pointer;
   font-weight:400;
   padding-bottom:2rem;
-  margin-top:4rem;
+  margin-top:1rem;
   color:${props => props.theme.colors.primaryText};
   opacity: 0;
   transform: translateY(20px); 
@@ -44,7 +44,6 @@ const StyledNextPageLink = styled(Link)`
   @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
   font-size: 1rem;
   text-align:center;
-  margin-top:2.5rem;
   }
 
 `;
