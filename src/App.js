@@ -6,7 +6,7 @@ import { ThemeProvider as StyledProvider } from 'styled-components';
 // Component Imports
 import Home from './components/views/Home.styles';
 import About from './components/views/About.styles';
-import Projects from './components/views/Projects.styles';
+import Projects from './components/views/Projects/Projects.styles';
 import Contact from './components/views/Contact.styles';
 import Layout from './components/Layout';
 import ScrollToTop from './components/scrollToTop/ScrollToTop.style';
