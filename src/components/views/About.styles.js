@@ -6,13 +6,27 @@ import { Link } from "react-router-dom";
 import { ViewsWrapper } from "./ViewsWrapper";
 import { slideUpFadeIn } from "../styles/keyframes";
 import Resume from "../resume/Resume.style";
-import Image1 from "../../../src/assets/images/nicole-img-1.jpg";
-import Image2 from "../../../src/assets/images/nicole-img-2.jpg";
-import Image4 from "../../../src/assets/images/nicole-img-4.jpg";
-import Image6 from "../../../src/assets/images/nicole-img-6.jpg";
+
+import Image9 from "../../../src/assets/images/nicole-img-9.jpg";
 import NextPageLink from "../UI/Links/NextPageLink.style";
 import PageHeader from "../pageHeader/PageHeader.styles";
-import ImageCarousel from "../ImageCarousel/ImageCarousel.style";
+
+const CircularImage = styled.div`
+  width: 300px;
+  height: 300px; 
+  overflow: hidden;
+  border-radius: 50%;
+margin-bottom:2.5rem;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  object-position:  center; /* Adjust this property to display more of the top of the image */
+`;
+
 
 const AboutContainer = styled.div`
   display: flex;
@@ -40,7 +54,7 @@ const AboutMeDescription = styled.p`
   color: ${({ theme }) => theme.colors.secondaryText};
   font-size: 1.4rem;
   font-family: ${({ theme }) => theme.fonts.secondary};
-
+text-align:center;
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 1.3rem;
     margin-top:2rem;
@@ -142,52 +156,44 @@ const ContactMe = styled(Link)`
 `;
 
 const ResumeSection = styled.div`
-  margin: 2rem 0 4rem 0;
+  margin: 2rem 0 2rem 0;
   display: flex;
   justify-content: center;
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
   }
 `;
 
-const ImageCarouselWrapper = styled.div`
- 
- padding: 1rem;
- height:fit-content;
-border:10px solid ${({ theme }) => theme.colors.secondaryAccent}};
-
-`;
-
 
 const ImageAndDescriptionWrapper = styled.div`
 display:flex;
-flex-direction:row;
+flex-direction:column;
 margin-bottom:2.5rem;
+align-items:center;
+justify-content:center;
 @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
   flex-direction:column;
-  align-items:center
+  align-items:center;
+  border-radius:20px
 }
-
-  }
+}
 `;
-
-const images = [Image2, Image1, Image4, Image6];
-
 
 const About = () => {
   return (
     <ViewsWrapper>
       <AboutContainer>
 
-        <PageHeader>About Me</PageHeader>
+
         <AnimatedContainer>
-          <ResumeSection>
-            <Resume />
-          </ResumeSection>
           <SkillAboutContainer>
             <ImageAndDescriptionWrapper>
-              <ImageCarouselWrapper>
-                <ImageCarousel images={images} interval={10000} />
-              </ImageCarouselWrapper>
+              <CircularImage>
+                <Image src={Image9} alt="Your Name" />
+              </CircularImage>
+              <PageHeader>About Me</PageHeader>
+              <ResumeSection>
+                <Resume />
+              </ResumeSection>
               <AboutMeDescription>
                 Hello, my name is Nicole Brooks, originally from Massachusetts and now thriving in sunny San Diego, California. I'm a frontend developer with a design flair and an innovative spirit.<br /><br />
 
