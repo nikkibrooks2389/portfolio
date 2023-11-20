@@ -6,25 +6,27 @@ import { Link } from "react-router-dom";
 import { ViewsWrapper } from "./ViewsWrapper";
 import { slideUpFadeIn } from "../styles/keyframes";
 import Resume from "../resume/Resume.style";
-
 import Image9 from "../../../src/assets/images/nicole-img-9.jpg";
 import NextPageLink from "../UI/Links/NextPageLink.style";
 import PageHeader from "../pageHeader/PageHeader.styles";
 
 const CircularImage = styled.div`
   width: 300px;
-  height: 300px; 
+  height: 300px;
   overflow: hidden;
   border-radius: 50%;
-margin-bottom:2.5rem;
-`;
+  margin-bottom: 2.5rem;
+  border: 4px solid ${({ theme }) => theme.colors.secondaryText};/* Add a solid border */
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.2); /* Add a shadow for depth */
+  position: relative; /* Needed for absolute positioning of pseudo-elements if you add design */
+
+  `;
 
 const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-
-  object-position:  center; /* Adjust this property to display more of the top of the image */
+  object-position:  center; 
 `;
 
 
@@ -33,7 +35,7 @@ const AboutContainer = styled.div`
   width: 80%;
   padding-top:150px;
   flex-direction: column;
-
+  align-items:center;
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     width: 85%;   
   }
@@ -54,10 +56,9 @@ const AboutMeDescription = styled.p`
   color: ${({ theme }) => theme.colors.secondaryText};
   font-size: 1.4rem;
   font-family: ${({ theme }) => theme.fonts.secondary};
-text-align:center;
+  text-align:center;
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 1.3rem;
-    margin-top:2rem;
     padding:0px
   }
   
@@ -71,11 +72,6 @@ text-align:center;
   }
 `;
 
-const HorizontalLine = styled.hr`
-  border: none;
-  border-top: 1px solid #ccc;
-  margin: 1rem 3rem;
-`;
 
 
 const AnimatedContainer = styled.div`
@@ -86,10 +82,10 @@ const AnimatedContainer = styled.div`
 `;
 
 const SkillsSection = styled.div`
-margin:2rem 0;
+  margin:2rem 0;
   display: flex;
-  flex-wrap: wrap;
-justify-content:space-evenly;
+  flex-direction: row;
+  justify-content:space-evenly;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) { 
     max-width: unset;
@@ -103,15 +99,11 @@ const SkillSection = styled.div`
   flex-direction: column;
   margin: 2rem 0;
   max-width:450px;
- padding:0rem 2rem;
+  padding:0rem 2rem;
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    align-items: center;
-    max-width: 100%;
-    margin: 10px;
-  }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    margin: 10px;
+    max-width: 100%;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -131,7 +123,7 @@ const Skill = styled.span`
   padding: 0.2rem;
   line-height: 1.5;
   font-size: 1.3rem;
-text-align:center;
+  text-align:center;
   @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
     font-size: 1.1rem;
   }
@@ -146,6 +138,7 @@ const SkillHeader = styled.h3`
   text-align:center;
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 1.4rem;
+   
   }
 `;
 
@@ -156,7 +149,7 @@ const ContactMe = styled(Link)`
 `;
 
 const ResumeSection = styled.div`
-  margin: 2rem 0 2rem 0;
+  margin:1rem  0 3rem 0;
   display: flex;
   justify-content: center;
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -178,12 +171,21 @@ justify-content:center;
 }
 `;
 
+const VerticalLine = styled.div`
+  border-left: 1px solid #ccc;
+  height: 125px;
+  align-self: center;
+  margin: 0 1rem;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    display: none;
+  }
+
+`;
+
 const About = () => {
   return (
     <ViewsWrapper>
       <AboutContainer>
-
-
         <AnimatedContainer>
           <SkillAboutContainer>
             <ImageAndDescriptionWrapper>
@@ -202,7 +204,7 @@ const About = () => {
                 I'm actively exploring new frontend opportunities, eager to bring my expertise and passion to dynamic teams. If you'd like to connect or discuss potential collaborations, please feel free to reach out to me through my <ContactMe to={"/contact"}>Contact Page</ContactMe>.
               </AboutMeDescription>
             </ImageAndDescriptionWrapper>
-            <HorizontalLine />
+
             <SkillsSection>
               <SkillSection>
                 <SkillHeader>Frontend Tools</SkillHeader>
@@ -212,11 +214,13 @@ const About = () => {
                   Styled Components, AmCharts
                 </Skill>
               </SkillSection>
+              <VerticalLine />
 
               <SkillSection>
                 <SkillHeader>Backend Tools</SkillHeader>
                 <Skill>Node.js, Express</Skill>
               </SkillSection>
+              <VerticalLine />
 
               <SkillSection>
                 <SkillHeader>DevOps</SkillHeader>

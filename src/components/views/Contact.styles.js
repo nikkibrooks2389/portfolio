@@ -11,6 +11,7 @@ const ContactContainer = styled.div`
   flex-direction: column;
   padding-top:150px;
   width:80%;
+  align-items:center;
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     width:90%;
  
@@ -105,6 +106,8 @@ const FormTextArea = styled.textarea`
 
 const FormButtonsWrapper = styled.div`
 margin:1.5rem 0;
+
+justify-content:center;
   display:flex;
   animation: ${slideUpFadeIn} 0.9s ease forwards;
   animation-delay: 0.7s;

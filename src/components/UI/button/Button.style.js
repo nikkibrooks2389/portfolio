@@ -5,8 +5,8 @@ const StyledButton = styled.button`
   font-family: ${({ theme }) => theme.fonts.secondary};
   padding: 10px 20px;
   border: none;
-  border-radius: 4px;
-  font-size: 1.3rem;
+  border-radius: 25px;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
 

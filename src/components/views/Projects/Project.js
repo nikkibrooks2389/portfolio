@@ -4,7 +4,7 @@ import Button from "../../UI/button/Button.style"
 import styled from 'styled-components';
 
 const ProjectWrapper = styled.div`
-border-radius:10px;
+  border-radius:10px;
   text-align: center;
   border: 1px solid ${({ theme }) => theme.colors.secondaryText};
   padding: 20px;
@@ -36,16 +36,16 @@ const ProjectDescription = styled.p`
 const Project = ({ title, description, url }) => {
 
 
-    return (
-        <ProjectWrapper>
-            <ProjectTitle>{title}</ProjectTitle>
-            <ProjectDescription>{description}</ProjectDescription>
-            <Button variant="primary" onClick={() => window.open(url, '_blank')}>
-                Visit Site
-            </Button>
+  return (
+    <ProjectWrapper>
+      <ProjectTitle>{title}</ProjectTitle>
+      <ProjectDescription>{description}</ProjectDescription>
+      <Button variant="primary" onClick={() => window.open(url, '_blank')}>
+        Visit Site
+      </Button>
 
-        </ProjectWrapper>
-    );
+    </ProjectWrapper>
+  );
 };
 
 export default Project;

@@ -10,6 +10,7 @@ const ProjectsContainer = styled.div`
   width: 80%;
   flex-direction: column;
   padding-top:150px;
+  align-items:center;
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     width: 85%;   
   }
