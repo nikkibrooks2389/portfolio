@@ -94,7 +94,7 @@ overflow: auto;
   width:40vw;
   color: ${({ theme }) => theme.colors.primaryText};
   background: ${({ theme }) => theme.colors.primaryBackground};
-  height: calc(100vh - 65px); 
+  height: calc(100% - 65px); 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
   width:100vw;
   }
