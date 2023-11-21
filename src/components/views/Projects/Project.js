@@ -89,14 +89,16 @@ const Technology = styled.div`
 //---------------------Drawer---------------------//
 
 const DrawerContent = styled.div`
-position: relative;
-overflow: auto;
+  position: relative;
+  overflow: auto;
   width:40vw;
+  // margin-bottom: 1rem;
   color: ${({ theme }) => theme.colors.primaryText};
   background: ${({ theme }) => theme.colors.primaryBackground};
   height: calc(100% - 65px); 
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-  width:100vw;
+    width:100vw;
   }
 `;
 
@@ -109,7 +111,7 @@ margin: 0px;
 
 const BackToProjectsWrapper = styled.div`
 
-padding: .5rem 1rem;
+  padding: .5rem 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -133,6 +135,7 @@ const ModalTagLine = styled.p`
   font-size: 1rem;
   text-align: center;
   padding: .5rem 1rem;
+  font-family: ${({ theme }) => theme.fonts.secondary};
 `;
 
 const ModalImageWrapper = styled.div`
@@ -161,10 +164,11 @@ const ModalDescriptionHeader = styled.h6`
   font-weight: bold;
   text-align: center;
   padding: 10px;
-
-`;
+  
+  `;
 
 const ModalDescription = styled.p`
+  font-family: ${({ theme }) => theme.fonts.secondary};
   color: ${({ theme }) => theme.colors.primaryText};
   font-size: 1rem;
   text-align: center;
@@ -182,7 +186,7 @@ const OpenProjectButton = styled.button`
   font-weight:bold;
   font-size: 1.2rem;
   background-color: ${({ theme }) => theme.colors.accent};
-  color: white
+  color: ${({ theme }) => theme.colors.primaryText};
 
     :hover {
       background-color: ${({ theme }) => theme.colors.accentHover};
@@ -209,6 +213,7 @@ const ModalTechnologiesListHeader = styled.h6`
   padding: 10px;
 `;
 const ModalTechnologiesList = styled.div`
+font-family: ${({ theme }) => theme.fonts.secondary};
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -283,9 +288,9 @@ const Project = ({ title, description, url, image, technologiesList, tagLine }) 
             </ModalTechnologiesList>
           </ModalTechnologiesWrapper>
 
-          <OpenProjectButton onClick={() => window.open(url, "_blank")}>Open Project</OpenProjectButton>
 
         </DrawerContent>
+        <OpenProjectButton onClick={() => window.open(url, "_blank")}>Open Project</OpenProjectButton>
       </Drawer>
     </ProjectWrapper >
   );
