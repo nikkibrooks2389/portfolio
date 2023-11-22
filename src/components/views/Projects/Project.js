@@ -67,10 +67,13 @@ const TagLine = styled.p`
   color: white;
   font-size: 0.8rem;
   text-align: center;
+  font-family: ${({ theme }) => theme.fonts.secondary};
   margin-top: 5px;
 `;
 
 const TechnologiesList = styled.div`
+font-family: ${({ theme }) => theme.fonts.secondary};
+
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -78,7 +81,8 @@ const TechnologiesList = styled.div`
 `;
 
 const Technology = styled.div`
-  background-color: gray;
+
+  background-color:#a7a7a7 ;
   font-size: 0.8rem;
   color: white;
   padding: 5px 10px;

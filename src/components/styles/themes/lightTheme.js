@@ -42,8 +42,8 @@ export const lightTheme = {
         inputBackgroundFocus: '#F3F3F3',
     },
     fonts: {
-        primary: '"Raleway", sans-serif', /* Primary Font */
-        secondary: "'Poppins', sans-serif",
+        primary: '"Roboto", sans-serif', /* Replace with your primary font */
+        secondary: '"Nunito", sans-serif', /* Replace with your secondary font */
     },
     breakpoints,
 
