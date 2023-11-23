@@ -40,7 +40,7 @@ const projectsDetails = [
   {
     title: "My Favorite Movies",
     description: " 'My Favorite Movies' is a web application that utilizes The Movie Database(TMDb) API to provide users with an extensive collection of movie information.Users can search for their favorite movies, access detailed movie descriptions, explore the cast and crew, and even add movies to their personalized watchlist.It's your one-stop destination for discovering, learning about, and keeping track of your favorite films and actors. Explore the world of cinema at your fingertips with 'My Favorite Movies.'",
-    url: "https://my-favorite-movie-qve3e9heu-nbrooks89.vercel.app/",
+    url: "https://my-favorite-movie.vercel.app/",
     tagline: "Explore, Discover, and Track: Your Cinema Universe Awaits at 'My Favorite Movies'",
     technologies: ["React", "Javascript", "Styled Components", "The Movie Database API"],
     image: MFMImage
