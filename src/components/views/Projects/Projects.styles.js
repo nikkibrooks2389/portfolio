@@ -5,6 +5,7 @@ import NextPageLink from "../../UI/Links/NextPageLink.style";
 import PageHeader from "../../pageHeader/PageHeader.styles";
 import Project from "./Project";
 import MFMImage from "../../../assets/images/MFM-screenshot.png";
+import MinesweeperImage from "../../../assets/images/minesweeper-screenshot.png";
 import { Javascript } from "@mui/icons-material";
 const ProjectsContainer = styled.div`
   display: flex;
@@ -27,12 +28,16 @@ const ProjectsContainer = styled.div`
 `;
 
 const StyledProjects = styled.div`
+display: flex;
+flex-wrap: wrap;
+gap: 2rem;
 font-size: 2.5rem;
 margin:2rem 0 3rem 0;
 opacity: 0;
 transform: translateY(20px); 
 animation: ${slideUpFadeIn} 0.5s forwards;
 animation-delay: 0.7s;
+
 `
 
 
@@ -44,6 +49,14 @@ const projectsDetails = [
     tagline: "Explore, Discover, and Track: Your Cinema Universe Awaits at 'My Favorite Movies'",
     technologies: ["React", "Javascript", "Styled Components", "The Movie Database API"],
     image: MFMImage
+  },
+  {
+    title: "Minesweeper Master",
+    description: "'Minesweeper Master' is a dynamic web-based version of the classic Minesweeper game, enhanced with multiple levels, theme customization, and adjustable grid sizes. Players can choose their challenge level, from beginner to expert, and personalize their gaming experience by changing the theme to suit their preference. The game is equipped with a timer and a mine counter, adding an extra layer of excitement and strategy. Whether you're a seasoned Minesweeper pro or new to the game, 'Minesweeper Master' offers a compelling and customizable experience for all.",
+    url: "https://minesweeper-master.vercel.app/",
+    tagline: "Challenge, Customize, Conquer: Dive into the Evolved World of 'Minesweeper Master'",
+    technologies: ["React", "JavaScript", "Styled Components", "Redux"],
+    image: MinesweeperImage
   }
 ]
 const Projects = () => (
