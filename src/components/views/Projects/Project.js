@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import Button from "../../UI/button/Button.style"
 import styled from 'styled-components';
 import Drawer from '@mui/material/Drawer';
 
@@ -13,19 +12,19 @@ import '@mui/material/styles';
 const ProjectWrapper = styled.div`
 position: relative;
 width: 100%; 
-max-width: 400px;
+max-width: 375px;
 margin: auto;
 overflow: hidden;
-border-radius: 10px; /* Rounded corners */
-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+border-radius: 10px; 
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
 `;
 
 const ProjectTitle = styled.h6`
-color: white; /* White color for better contrast */
-font-size: 24px; /* Larger font size */
-font-weight: bold; /* Bold font weight */
+color: white; 
+font-size: 24px; 
+font-weight: bold;
 text-align: center;
-padding: 10px; /* Padding for spacing */
+padding: 10px; 
 `;
 
 const Overlay = styled.div`
@@ -37,7 +36,7 @@ bottom: 0;
 background: linear-gradient(
   to bottom, 
   rgba(0, 0, 0, 0.4) 0%, 
-  rgba(0, 0, 0, 0.9) 100%); /* Gradient overlay */
+  rgba(0, 0, 0, 0.9) 100%); 
 opacity: 0;
 transition: opacity 0.5s ease;
 cursor: pointer;
@@ -56,7 +55,9 @@ padding: 10px;
 const ProjectImage = styled.img`
 width: 100%;
 display: block;
-transition: transform 0.5s ease; /* Smooth zoom effect */
+transition: transform 0.5s ease; 
+
+
 &:hover {
     transform: scale(1.05); /* Slight zoom on hover */
 }
@@ -71,24 +72,24 @@ const TagLine = styled.p`
   margin-top: 5px;
 `;
 
-const TechnologiesList = styled.div`
-font-family: ${({ theme }) => theme.fonts.secondary};
+// const TechnologiesList = styled.div`
+// font-family: ${({ theme }) => theme.fonts.secondary};
 
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
-`;
+//   display: flex;
+//   justify-content: center;
+//   flex-wrap: wrap;
+//   margin-top: 20px;
+// `;
 
-const Technology = styled.div`
+// const Technology = styled.div`
 
-  background-color:#a7a7a7 ;
-  font-size: 0.8rem;
-  color: white;
-  padding: 5px 10px;
-  margin: 5px;
-  border-radius: 25px;
-`;
+//   background-color:#a7a7a7 ;
+//   font-size: 0.8rem;
+//   color: white;
+//   padding: 5px 10px;
+//   margin: 5px;
+//   border-radius: 25px;
+// `;
 
 //---------------------Drawer---------------------//
 
@@ -96,7 +97,6 @@ const DrawerContent = styled.div`
   position: relative;
   overflow: auto;
   width:40vw;
-  // margin-bottom: 1rem;
   color: ${({ theme }) => theme.colors.primaryText};
   background: ${({ theme }) => theme.colors.primaryBackground};
   height: calc(100% - 65px); 
@@ -145,14 +145,13 @@ const ModalTagLine = styled.p`
 const ModalImageWrapper = styled.div`
 padding: 1rem;
 `;
+
 const ModalImage = styled.img`
   width: 100%;
   display: block;
   margin: auto;
   margin-top: 1rem;
-  margin-bottom: 1rem;
   border-radius: 15px;
-  
 `;
 const ModalDescriptionWrapper = styled.div`
   display: flex;
@@ -167,8 +166,7 @@ const ModalDescriptionHeader = styled.h6`
   font-size: 1.3rem;
   font-weight: bold;
   text-align: center;
-  padding: 10px;
-  
+  padding: 2rem;
   `;
 
 const ModalDescription = styled.p`
@@ -176,7 +174,7 @@ const ModalDescription = styled.p`
   color: ${({ theme }) => theme.colors.primaryText};
   font-size: 1rem;
   text-align: center;
-  margin-top: 1rem;
+  
 `;
 
 const OpenProjectButton = styled.button`
@@ -214,14 +212,14 @@ const ModalTechnologiesListHeader = styled.h6`
   font-size: 1.3rem;
   font-weight: bold;
   text-align: center;
-  padding: 10px;
+  padding: 2rem;
 `;
 const ModalTechnologiesList = styled.div`
-font-family: ${({ theme }) => theme.fonts.secondary};
+  font-family: ${({ theme }) => theme.fonts.secondary};
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-bottom: 2rem;
 `;
 
 const ModalTechnology = styled.div`
@@ -247,11 +245,11 @@ const Project = ({ title, description, url, image, technologiesList, tagLine }) 
       <Overlay onClick={() => setDrawerOpen(true)}>
         <ProjectTitle>{title}</ProjectTitle>
         <TagLine>{tagLine}</TagLine>
-        <TechnologiesList>
+        {/* <TechnologiesList>
           {technologiesList.map((tech) => (
             <Technology key={tech}>{tech}</Technology>
           ))}
-        </TechnologiesList>
+        </TechnologiesList> */}
       </Overlay>
 
 

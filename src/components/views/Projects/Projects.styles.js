@@ -6,7 +6,7 @@ import PageHeader from "../../pageHeader/PageHeader.styles";
 import Project from "./Project";
 import MFMImage from "../../../assets/images/MFM-screenshot.png";
 import MinesweeperImage from "../../../assets/images/minesweeper-screenshot.png";
-import { Javascript } from "@mui/icons-material";
+
 const ProjectsContainer = styled.div`
   display: flex;
   width: 80%;
@@ -52,13 +52,15 @@ const projectsDetails = [
   },
   {
     title: "Minesweeper Master",
-    description: "'Minesweeper Master' is a dynamic web-based version of the classic Minesweeper game, enhanced with multiple levels, theme customization, and adjustable grid sizes. Players can choose their challenge level, from beginner to expert, and personalize their gaming experience by changing the theme to suit their preference. The game is equipped with a timer and a mine counter, adding an extra layer of excitement and strategy. Whether you're a seasoned Minesweeper pro or new to the game, 'Minesweeper Master' offers a compelling and customizable experience for all.",
+    description: "'Minesweeper Master' reimagines the classic Minesweeper game with multiple levels, theme customization, and adjustable grid sizes. Players can choose their challenge level, from beginner to hard, and personalize their gaming experience by changing the theme to suit their preference. The game is equipped with a timer and a mine counter, adding an extra layer of excitement and strategy. What makes 'Minesweeper Master' even more exciting is its leaderboard feature, powered by MongoDB and supported by Node.js and Express, where players can compete for the top spots by completing puzzles quickly and efficiently. Whether you're a seasoned Minesweeper pro or new to the game, 'Minesweeper Master' offers a compelling and customizable experience for all.",
     url: "https://minesweeper-master.vercel.app/",
     tagline: "Challenge, Customize, Conquer: Dive into the Evolved World of 'Minesweeper Master'",
-    technologies: ["React", "JavaScript", "Styled Components", "Redux"],
+    technologies: ["React", "JavaScript", "Styled Components", "Redux", "Express", "Node.js", "MongoDB"],
     image: MinesweeperImage
   }
 ]
+
+
 const Projects = () => (
   <ViewsWrapper>
     <ProjectsContainer>
@@ -69,7 +71,6 @@ const Projects = () => (
             <Project technologiesList={project.technologies} title={project.title} description={project.description} url={project.url} image={project.image} tagLine={project.tagline} />
           )
         })}
-
       </StyledProjects>
       <NextPageLink to="/contact" animationDelay="1s">  Contact Me</NextPageLink>
     </ProjectsContainer>
