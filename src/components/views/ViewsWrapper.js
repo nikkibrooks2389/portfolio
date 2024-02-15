@@ -4,8 +4,9 @@ import { gradientAnimation } from '../styles/keyframes';
 
 const backgroundFilter = (theme) => {
   if (theme.mode === "light") {
-    return `linear-gradient(to right, transparent 1px, transparent 10px, rgba(150, 150, 150, 0.1) 10px, rgba(150, 150, 150, 0.1) 11px, transparent 11px, transparent 20px),
-    linear-gradient(to bottom, transparent 1px, transparent 10px, rgba(150, 150, 150, 0.1) 10px, rgba(150, 150, 150, 0.1) 11px, transparent 11px, transparent 20px)`;
+    return theme.colors.primaryBackground
+    // return `linear-gradient(to right, transparent 1px, transparent 10px, rgba(150, 150, 150, 0.1) 10px, rgba(150, 150, 150, 0.1) 11px, transparent 11px, transparent 20px),
+    // linear-gradient(to bottom, transparent 1px, transparent 10px, rgba(150, 150, 150, 0.1) 10px, rgba(150, 150, 150, 0.1) 11px, transparent 11px, transparent 20px)`;
   } else if (theme.mode === "dark") {
     return `linear-gradient(to right, transparent 1px, transparent 10px, rgba(100, 100, 100, 0.1) 10px, rgba(100, 100, 100, 0.1) 11px, transparent 11px, transparent 20px),
     linear-gradient(to bottom, transparent 1px, transparent 10px, rgba(100, 100, 100, 0.1) 10px, rgba(100, 100, 100, 0.1) 11px, transparent 11px, transparent 20px)`;

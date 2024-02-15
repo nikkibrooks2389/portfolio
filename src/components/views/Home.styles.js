@@ -14,7 +14,7 @@ export const HeaderContainer = styled.div`
 `;
 
 const Name = styled.div`
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight:300;
   color:${props => props.theme.colors.accent};
   opacity: 0; 
@@ -23,11 +23,11 @@ const Name = styled.div`
   animation: ${slideUpFadeIn} 0.5s forwards; 
   animation-delay: 2.2s;
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 2.1rem;
+    font-size: 1.7rem;
   };
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
@@ -38,11 +38,11 @@ const Name = styled.div`
 
 
 const FrontendWord = styled.div`
-  font-size: 12rem;
+  font-size: 9rem;
   margin-right:5px;
   animation: ${slideInFromLeftWithBounce} 0.9s forwards;
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    font-size: 9rem;
+    font-size: 8rem;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -75,17 +75,17 @@ const slideInRightWithSmoothBounce = keyframes`
 `;
 
 const RightSmoothBouncingLetter = styled.span`
-  font-size: 8rem;
+  font-size: 6rem;
   transform: translateX(100vw);
   animation: ${slideInRightWithSmoothBounce} 0.7s forwards;
   animation-delay: ${(props) => 0.3 + props.index * 0.15}s;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    font-size: 7rem;
+    font-size: 5rem;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
@@ -94,7 +94,7 @@ const RightSmoothBouncingLetter = styled.span`
 `;
 
 const ShortDescription = styled.p`
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: ${({ theme }) => theme.colors.secondaryText};
   font-family: ${({ theme }) => theme.fonts.secondary};
   text-align: center;
