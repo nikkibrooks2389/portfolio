@@ -1,18 +1,51 @@
-// PageContext.js
-import { createContext, useContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
+import { lightTheme, darkTheme, unicornTheme } from '../styles/themes';
 
-const PageContext = createContext();
+export const AppThemeContext = createContext();
 
-export function usePageContext() {
-    return useContext(PageContext);
-}
+const themeMap = {
+    light: lightTheme,
+    dark: darkTheme,
+    unicorn: unicornTheme,
+};
 
-export function PageContextProvider({ children }) {
-    const [currentPage, setCurrentPage] = useState('');
+const getNextTheme = (currentTheme) => {
+    if (currentTheme === lightTheme) return 'dark';
+    if (currentTheme === darkTheme) return 'unicorn';
+    return 'light';
+};
+
+const getStoredThemeName = () => {
+    try {
+        return localStorage.getItem('theme') || 'light';
+    } catch (error) {
+        console.error("Can't access localStorage:", error);
+        return 'light';
+    }
+};
+
+export const AppThemeProvider = ({ children }) => {
+    const storedThemeName = getStoredThemeName();
+    const [theme, setTheme] = useState(themeMap[storedThemeName]);
+
+    const toggleTheme = () => {
+        const nextThemeName = getNextTheme(theme);
+        setTheme(themeMap[nextThemeName]);
+        try {
+            localStorage.setItem('theme', nextThemeName);
+        } catch (error) {
+            console.error("Can't update localStorage:", error);
+        }
+    };
+
+    useEffect(() => {
+        const storedThemeName = getStoredThemeName();
+        setTheme(themeMap[storedThemeName]);
+    }, []);
 
     return (
-        <PageContext.Provider value={{ currentPage, setCurrentPage }}>
+        <AppThemeContext.Provider value={{ theme, toggleTheme }}>
             {children}
-        </PageContext.Provider>
+        </AppThemeContext.Provider>
     );
-}
+};

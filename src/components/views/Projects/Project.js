@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Drawer from '@mui/material/Drawer';
-
+import SkillTag from "../../UI/skillTag";
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import '@mui/material/styles';
@@ -10,14 +10,16 @@ import '@mui/material/styles';
 
 
 const ProjectWrapper = styled.div`
-position: relative;
-width: 100%; 
-max-width: 375px;
-margin: auto;
-overflow: hidden;
-border-radius: 10px; 
-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+  position: relative;
+  width: 100%; 
+  max-width: 375px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px; 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+  border: ${({ theme }) => `3px solid ${theme.colors.header2}`};
 `;
+
 
 const ProjectTitle = styled.h6`
 color: white; 
@@ -25,71 +27,53 @@ font-size: 24px;
 font-weight: bold;
 text-align: center;
 padding: 10px; 
+color: ${({ theme }) => `${theme.colors.header2}`};
 `;
 
-const Overlay = styled.div`
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background: linear-gradient(
-  to bottom, 
-  rgba(0, 0, 0, 0.4) 0%, 
-  rgba(0, 0, 0, 0.9) 100%); 
-opacity: 0;
-transition: opacity 0.5s ease;
-cursor: pointer;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-padding: 10px;
-&:hover {
-  opacity: 1;
-}
-@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-  opacity: 1;
-}
+
+const ProjectButtons = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
 `;
+
+const DetailButton = styled.button`
+  padding: 10px 20px;
+  color: white;
+  background-color: ${({ theme }) => theme.colors.accent};
+  color: ${({ theme }) => theme.colors.primaryText};
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.accentHover};
+  }
+`;
+
+const GoToProjectButton = styled.button`
+  padding: 10px 20px;
+    color: white;
+  background-color: ${({ theme }) => theme.colors.link};
+  color: ${({ theme }) => theme.colors.primaryText};
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.linkHover};
+  }
+`;
+
 const ProjectImage = styled.img`
 width: 100%;
 display: block;
 transition: transform 0.5s ease; 
-
-
-&:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
-}
 `;
 
-
-const TagLine = styled.p`
-  color: white;
-  font-size: 0.8rem;
-  text-align: center;
-  font-family: ${({ theme }) => theme.fonts.secondary};
-  margin-top: 5px;
-`;
-
-// const TechnologiesList = styled.div`
-// font-family: ${({ theme }) => theme.fonts.secondary};
-
-//   display: flex;
-//   justify-content: center;
-//   flex-wrap: wrap;
-//   margin-top: 20px;
-// `;
-
-// const Technology = styled.div`
-
-//   background-color:#a7a7a7 ;
-//   font-size: 0.8rem;
-//   color: white;
-//   padding: 5px 10px;
-//   margin: 5px;
-//   border-radius: 25px;
-// `;
 
 //---------------------Drawer---------------------//
 
@@ -222,16 +206,15 @@ const ModalTechnologiesList = styled.div`
   margin-bottom: 2rem;
 `;
 
-const ModalTechnology = styled.div`
-  background-color: gray;
-  font-size: 0.8rem;
-  color: white;
-  padding: 5px 10px;
-  margin: 5px;
-  border-radius: 25px;
+
+
+// Tagline Style
+const ProjectTagline = styled.p`
+  color: ${({ theme }) => theme.colors.textSecondary};
+  font-size: 1rem;
+  text-align: center;
+  margin: 10px;
 `;
-
-
 
 const Project = ({ title, description, url, image, technologiesList, tagLine }) => {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
@@ -242,16 +225,12 @@ const Project = ({ title, description, url, image, technologiesList, tagLine }) 
   return (
     <ProjectWrapper>
       <ProjectImage src={image} />
-      <Overlay onClick={() => setDrawerOpen(true)}>
-        <ProjectTitle>{title}</ProjectTitle>
-        <TagLine>{tagLine}</TagLine>
-        {/* <TechnologiesList>
-          {technologiesList.map((tech) => (
-            <Technology key={tech}>{tech}</Technology>
-          ))}
-        </TechnologiesList> */}
-      </Overlay>
-
+      <ProjectTitle>{title}</ProjectTitle>
+      <ProjectTagline>{tagLine}</ProjectTagline>
+      <ProjectButtons>
+        <DetailButton onClick={() => setDrawerOpen(true)}>More Details</DetailButton>
+        <GoToProjectButton onClick={() => window.open(url, "_blank")}>Go to Project</GoToProjectButton>
+      </ProjectButtons>
 
       <Drawer
         anchor="right"
@@ -285,14 +264,15 @@ const Project = ({ title, description, url, image, technologiesList, tagLine }) 
             <ModalTechnologiesListHeader>Technologies Used</ModalTechnologiesListHeader>
             <ModalTechnologiesList>
               {technologiesList.map((tech) => (
-                <ModalTechnology key={tech}>{tech}</ModalTechnology>
+                <SkillTag >{tech}</SkillTag>
               ))}
             </ModalTechnologiesList>
           </ModalTechnologiesWrapper>
-
+       
+          <OpenProjectButton onClick={() => window.open(url, "_blank")}>Open Project</OpenProjectButton>
 
         </DrawerContent>
-        <OpenProjectButton onClick={() => window.open(url, "_blank")}>Open Project</OpenProjectButton>
+        
       </Drawer>
     </ProjectWrapper >
   );

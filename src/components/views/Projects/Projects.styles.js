@@ -1,29 +1,31 @@
 import styled from "styled-components";
 import { ViewsWrapper } from "../ViewsWrapper";
 import { slideUpFadeIn } from "../../styles/keyframes";
-import NextPageLink from "../../UI/Links/NextPageLink.style";
 import PageHeader from "../../pageHeader/PageHeader.styles";
 import Project from "./Project";
 import MFMImage from "../../../assets/images/MFM-screenshot.png";
 import MinesweeperImage from "../../../assets/images/minesweeper-screenshot.png";
 
+
 const ProjectsContainer = styled.div`
   display: flex;
-  width: 80%;
   flex-direction: column;
-  padding-top:150px;
-  align-items:center;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 120px;
+
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    width: 85%;   
+    width: 85%;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     width: 90%;
-    text-align:center;
-    align-items:center;
+    text-align: center;
   }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.xsMobile}) {
-    padding-top:120px;
+    padding-top: 120px;
   }
 `;
 
@@ -72,7 +74,6 @@ const Projects = () => (
           )
         })}
       </StyledProjects>
-      <NextPageLink to="/contact" animationDelay="1s">  Contact Me</NextPageLink>
     </ProjectsContainer>
   </ViewsWrapper>
 );

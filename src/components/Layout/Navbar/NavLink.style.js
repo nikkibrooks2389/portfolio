@@ -1,53 +1,44 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const StyledNavLink = styled(Link)`
-text-decoration: none;
-position: relative;
-color: ${props =>
-    props.isActive
-      ? props.theme.colors.accent
-      : props.theme.colors.primaryText};
-font-size: ${props => props.isMobile ? "3rem" : "2rem"};
-cursor: pointer;
-transition: color 0.3s ease;
-
-&:hover {
-  color: ${props =>
-    !props.isActive && props.theme.colors.accent};
-}
-
-&::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: ${props =>
-    !props.isActive
-      ? props.theme.colors.accent
-      : 'transparent'};
-  transition: width 0.3s ease;
-}
-
-&:hover::after {
-  width: 100%;
-  background-color: ${props =>
-    !props.isActive && props.theme.colors.accent};
-}
+const StyledNavLink = styled.a`
+  text-decoration: none;
+  position: relative;
+  font-weight: 500;
+  font-family: ${({ theme }) => theme.fonts.secondary};
+  font-size: ${({ isMobile }) => (isMobile ? '2.2rem' : '0.95rem')};
+  color: ${({ isActive, theme }) =>
+    isActive ? theme.colors.pop2 : theme.colors.link};
+  cursor: pointer;
   transition: color 0.3s ease;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.accentSecondary};
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: ${({ isActive }) => (isActive ? '100%' : '0')};
+    height: 2px;
+    background-color: ${({ theme }) => theme.colors.accentSecondary};
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
   }
 `;
 
-const NavLink = ({ to, isActive, onClick, children, isMobile = false }) => {
+const NavLink = ({ href, activeSection, children, isMobile = false }) => {
+  const isActive = href === `#${activeSection}`;
 
   return (
-    <StyledNavLink onClick={onClick} to={to} isActive={isActive} isMobile={isMobile}>
+    <StyledNavLink href={href} isActive={isActive} isMobile={isMobile}>
       {children}
     </StyledNavLink>
-  )
+  );
+};
 
-}
-
-export default NavLink
+export default NavLink;

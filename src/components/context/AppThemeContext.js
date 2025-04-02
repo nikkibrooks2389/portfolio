@@ -1,3 +1,5 @@
+// src/context/AppThemeContext.js
+
 import { createContext, useState, useEffect } from 'react';
 import { lightTheme, darkTheme, unicornTheme } from '../styles/themes';
 
@@ -9,12 +11,14 @@ const themeMap = {
     unicorn: unicornTheme,
 };
 
+// Function to determine the next theme based on the current one
 const getNextTheme = (currentTheme) => {
     if (currentTheme === lightTheme) return 'dark';
     if (currentTheme === darkTheme) return 'unicorn';
     return 'light';
 };
 
+// Get the stored theme from localStorage, default to 'light' if none exists
 const getStoredThemeName = () => {
     try {
         return localStorage.getItem('theme') || 'light';
@@ -24,6 +28,7 @@ const getStoredThemeName = () => {
     }
 };
 
+// Theme Provider that supplies the theme and toggle function
 export const AppThemeProvider = ({ children }) => {
     const storedThemeName = getStoredThemeName();
     const [theme, setTheme] = useState(themeMap[storedThemeName]);
@@ -41,7 +46,7 @@ export const AppThemeProvider = ({ children }) => {
     useEffect(() => {
         const storedThemeName = getStoredThemeName();
         setTheme(themeMap[storedThemeName]);
-    }, []);
+    }, []); // This only runs once on the initial load
 
     return (
         <AppThemeContext.Provider value={{ theme, toggleTheme }}>

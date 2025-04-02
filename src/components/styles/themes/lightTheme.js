@@ -1,50 +1,73 @@
-
-import { breakpoints } from './sharedStyles';
+import { breakpoints } from "./sharedStyles";
 
 export const lightTheme = {
     mode: "light",
     colors: {
-        primaryBackground: '#EBEBEB', // Light Gray
-        secondaryBackground: '#D9D9D9', // Slightly Darker Gray
-        tertiaryBackground: '#C4C4C4', // Medium Gray
-        quaternaryBackground: '#AFAFAF', // Darker Gray
-
-        primaryText: '#484848', // Dark Gray
-        secondaryText: '#6e6e6e', // Gray
-        tertiaryText: '#898989', // Light Gray
-        quaternaryText: '#CCCCCC', // Lighter Gray
-
-
-        accent: '#E8AC41', // Orange
-        accentLight: '#FFCB62', // Light Orange
-        accentDark: '#FF8C00', // Dark Orange
-        accentHover: '#FFB733', // Hover color
-
-        secondaryAccent: '#44A3B2', // Blue
-        secondaryAccentHover: '#68B6C8', // Light Blue
-
-
-        warning: '#FF8C00', // Dark Orange
-        warningLight: '#FFB733', // Light Orange
-        warningDark: '#FF6600', // Slightly Darker Orange
-
-        error: '#E53935',
-        errorBackground: '#DEEAE9',
-
-        success: '#00A957', // Green
-        successBackground: '#DEEAE9',
-
-        neutral: '#C0C0C0', // Neutral gray, can be used for borders, dividers, etc.
-        neutralLight: '#D4D4D4', // Lighter neutral gray
-        neutralDark: '#ACACAC',  // Darker neutral gray
-
-        inputBorder: '#C8C8C8',
-        inputBackgroundFocus: '#F3F3F3',
+      // Layout
+      background: "#ffffff",
+      surface: "#ffffff",
+      surfaceAlt: "#f5f5f5",
+      navBackground: "#ffffff",
+      border: "#e3e3e3",
+  
+      // Text
+      textPrimary: "#1e1e1e",
+      textSecondary: "#5f6368",
+      textLight: "#6a737d",
+  
+      // Branding / Identity
+      heroName: "#267f99",
+      tagline: "#0000ff",
+      header1: "#af00db",
+      header2: "#4ec9b0",
+  
+      // UI Accents
+      accent: "#4ec9b0",
+      accentHover: "#3bb09a",
+      accentSecondary: "#c792ea",
+      accentSecondaryHover: "#b083e3",
+      pop: "#e8ac41",
+      popHover: "#ffb733",
+      pop2: "#af00db",
+  
+      // Links
+      link: "#267f99",
+      linkHover: "#4ec9b0",
+  
+      // Feedback
+      warning: "#f2994a",
+      warningLight: "#fbd39c",
+      warningDark: "#e67e22",
+      error: "#e74c3c",
+      errorBackground: "#fdecea",
+      success: "#27ae60",
+      successBackground: "#e6f4ea",
+  
+      // Neutrals
+      neutral: "#c0c0c0",
+      neutralLight: "#d4d4d4",
+      neutralDark: "#999999",
+  
+      // Form Inputs
+      inputBorder: "#e0e0e0",
+      inputBackgroundFocus: "#f3f3f3",
+  
+      // Code Styling
+      codeBackground: "#ffffff",
+      codeText: "#333333",
+      comment: "#008000",
+      string: "#a31515",
+      number: "#098658",
+      keyword: "#0000ff",
+      function: "#795e26",
+      tag: "#0000ff",
+      attrName: "#001080",
+      attrValue: "#a31515",
+      punctuation: "#393a34"
     },
     fonts: {
-        primary: '"Roboto", sans-serif', /* Replace with your primary font */
-        secondary: '"Nunito", sans-serif', /* Replace with your secondary font */
+      primary: '"Source Code Pro", monospace',
+      secondary: '"Source Sans Pro", sans-serif'
     },
     breakpoints,
-
-};
+  };

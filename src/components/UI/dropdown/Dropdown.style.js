@@ -1,73 +1,87 @@
+// Dropdown.style.js
 import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import Button from '../button/Button.style';
 
 const DropdownWrapper = styled.div`
   position: relative;
   display: inline-block;
 `;
 
+const TriggerButton = styled.button`
+  font-family: ${({ theme }) => theme.fonts.primary};
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: ${({ theme }) => theme.colors.surfaceAlt};
+  color: ${({ theme }) => theme.colors.textPrimary};
+  border: 1px solid ${({ theme }) => theme.colors.textPrimary};
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.surfaceAlt};
+    color: ${({ theme }) => theme.colors.accentSecondary};
+    border-color: ${({ theme }) => theme.colors.accent};
+  }
+`;
 
 const DropdownContent = styled.div`
   display: ${props => (props.show ? 'block' : 'none')};
   position: absolute;
-  background-color: #ffffff;
-  min-width: 180px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  overflow: hidden; 
-  z-index: 1006;
   top: 110%;
-  width:100%;
   left: 0;
-  transition: opacity 0.3s;
+  width: max-content;
+  background-color: ${({ theme }) => theme.colors.surface};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1006;
+  min-width: 180px;
+  overflow: hidden;
 `;
 
 const DropdownItem = styled.a`
-  color: black;
-  padding: 10px 20px;
-  text-decoration: none;
-  font-size:1.2rem;
   display: block;
-  transition: background-color 0.3s, color 0.3s;
+  font-family: ${({ theme }) => theme.fonts.primary};
+  font-size: 0.95rem;
+  padding: 0.75rem 1.2rem;
+  color: ${({ theme }) => theme.colors.textPrimary};
+  text-decoration: none;
+  transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: #f1f1f1;
+    background-color: ${({ theme }) => theme.colors.surfaceAlt};
+    color: ${({ theme }) => theme.colors.accent};
   }
 `;
 
+const Dropdown = ({ children, triggerText = "" }) => {
+  const [showDropdown, setShowDropdown] = React.useState(false);
+  const dropdownRef = useRef(null);
 
-const Dropdown = ({ children, variant = "outline", triggerText = "" }) => {
-    const [showDropdown, setShowDropdown] = React.useState(false);
-    const dropdownRef = useRef(null);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    };
 
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-                setShowDropdown(false);
-            }
-        };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, []);
-
-    return (
-        <DropdownWrapper ref={dropdownRef}>
-            <Button variant={variant} onClick={() => setShowDropdown(!showDropdown)}>
-                {triggerText}
-            </Button>
-            <DropdownContent show={showDropdown}>
-                {React.Children.map(children, child => {
-                    return React.cloneElement(child, {
-                        onClick: () => setShowDropdown(false)
-                    });
-                })}
-            </DropdownContent>
-        </DropdownWrapper>
-    );
+  return (
+    <DropdownWrapper ref={dropdownRef}>
+      <TriggerButton onClick={() => setShowDropdown(!showDropdown)}>
+        {triggerText}
+      </TriggerButton>
+      <DropdownContent show={showDropdown}>
+        {React.Children.map(children, (child) =>
+          React.cloneElement(child, { onClick: () => setShowDropdown(false) })
+        )}
+      </DropdownContent>
+    </DropdownWrapper>
+  );
 };
 
 export { Dropdown, DropdownItem };
